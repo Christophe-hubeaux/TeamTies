@@ -15,7 +15,7 @@ UsersGame.destroy_all
 Match.destroy_all
 
 User.create!(
-  email: 'test@test.com',
+  email: 'gemmers@test.com',
   password: '123456',
   password_confirmation: '123456',
   pseudo: 'gemmers',
