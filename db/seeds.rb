@@ -8,11 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Team.destroy_all
-Game.destroy_all
 Pronostic.destroy_all
 UsersGame.destroy_all
 Match.destroy_all
+Game.destroy_all
+Team.destroy_all
 User.destroy_all
 
 user1 = User.create!(
@@ -51,9 +51,9 @@ cayman_islands = Team.find_by(name: 'Cayman Islands')
 gibraltar = Team.find_by(name: 'Gibraltar')
 vatican = Team.find_by(name: 'Vatican')
 
-match1 = Match.create(group: 'A', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: monaco, away_team: turks_and_caicos, date: Date.today)
-match2 = Match.create(group: 'B', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: russie, away_team: cayman_islands, date: Date.today + 1.day)
-Match.create(group: 'C', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: gibraltar, away_team: vatican, date: Date.today + 2.day)
+match1 = Match.create(group: 'A', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team_id: monaco.id, away_team_id: turks_and_caicos.id, date: Date.today)
+match2 = Match.create(group: 'B', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team_id: russie.id, away_team_id: cayman_islands.id, date: Date.today + 1.day)
+Match.create(group: 'C', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team_id: gibraltar.id, away_team_id: vatican.id, date: Date.today + 2.day)
 
-Pronostic.create(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: game1, status: 'pending')
-Pronostic.create(match: match2, user: user1, home_team_prono: 0, away_team_prono: 3, game: game1, status: 'pending')
+Pronostic.create(match_id: match1.id, user_id: user1.id, home_team_prono: 2, away_team_prono: 1, game_id: game1.id, status: 'pending')
+Pronostic.create(match_id: match2.id, user_id: user1.id, home_team_prono: 0, away_team_prono: 3, game_id: game1.id, status: 'pending')
