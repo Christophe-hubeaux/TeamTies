@@ -11,15 +11,14 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :games, only: %i[index new create] do # /games GET user-games index, /games/new GET games new, /game/new POST games create
+    resources :teams, only: [:index]
     resources :matches, only: [:index] do # /games/matchs GET matchs index
       resources :pronostics, only: %i[create update] # /games/matchs POST pronostics create, /games/matchs PATCH pronostics update
     end
-    get 'dashboard', on: :collection, action: :show # /games/dashboard GET dashboard show
-    get 'group', to: 'teams#index', on: :collection # /games/group GET teams index
-  end
-
-  resources :users_games, only: [] do
-    get 'ranking', on: :collection # /games/ranking GET users-games ranking
+    member do
+      get :dashboard
+      get :ranking
+    end
   end
 
   namespace :organisateur do
