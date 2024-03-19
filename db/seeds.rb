@@ -14,7 +14,7 @@ Pronostic.destroy_all
 UsersGame.destroy_all
 Match.destroy_all
 
-User.create!(
+user1 = User.create!(
   email: 'gemmers@test.com',
   password: '123456',
   password_confirmation: '123456',
@@ -39,9 +39,7 @@ Team.create(name: 'Gibraltar', flag: 'flag_gibraltar')
 Team.create(name: 'Somalia', flag: 'flag_somalia')
 Team.create(name: 'Tonga', flag: 'flag_tonga')
 
-Game.create(name: 'Game1')
-
-Pronostic.create(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: game1, status: 'pending')
+game1 = Game.create(name: 'Game1')
 
 UsersGame.create(user: user1, game: game1, total_score: 0)
 
@@ -49,6 +47,12 @@ monaco = Team.find_by(name: 'Monaco')
 russie = Team.find_by(name: 'Russie')
 turks_and_caicos = Team.find_by(name: 'Turks and Caicos Islands')
 cayman_islands = Team.find_by(name: 'Cayman Islands')
+gibraltar = Team.find_by(name: 'Gibraltar')
+vatican = Team.find_by(name: 'Vatican')
 
-Match.create(group: 'A', stage: 'Poules', tournament: 'Coupe du Monde 2024', home_team: monaco, away_team: turks_and_caicos, date: Date.today)
-Match.create(group: 'B', stage: 'Poules', tournament: 'Coupe du Monde 2024', home_team: russie, away_team: cayman_islands, date: Date.today + 1.day)
+match1 = Match.create(group: 'A', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: monaco, away_team: turks_and_caicos, date: Date.today)
+match2 = Match.create(group: 'B', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: russie, away_team: cayman_islands, date: Date.today + 1.day)
+Match.create(group: 'C', stage: 'quart de final', tournament: 'Coupe du Monde 2024', home_team: gibraltar, away_team: vatican, date: Date.today + 2.day)
+
+Pronostic.create(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: game1, status: 'pending')
+Pronostic.create(match: match2, user: user1, home_team_prono: 0, away_team_prono: 3, game: game1, status: 'pending')
