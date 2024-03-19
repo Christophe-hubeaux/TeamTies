@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :users_games
   has_many :pronostics
+  has_many :games, through: :users_games
 end
