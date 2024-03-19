@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 
     def create
         @game = Game.new(game_params)
+        @user_game = UsersGame.create!(user: current_user, game: @game)
         if @game.save
           redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
         else
