@@ -1,0 +1,2 @@
+class PronosticsController < ApplicationController
+end
