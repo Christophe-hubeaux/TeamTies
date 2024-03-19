@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   end
 
   namespace :organisateur do
-    get 'games/edit'
     resources :games, only: [:edit] # /organisateur/games/edit
   end
 end
