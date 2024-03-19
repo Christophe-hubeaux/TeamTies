@@ -13,6 +13,7 @@ Game.destroy_all
 Pronostic.destroy_all
 UsersGame.destroy_all
 Match.destroy_all
+User.destroy_all
 
 user1 = User.create!(
   email: 'gemmers@test.com',
