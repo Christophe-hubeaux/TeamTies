@@ -1,0 +1,12 @@
+<h1>UsersGames#:new</h1>
+<p>Find me in app/views/users_games/:new.html.erb</p>
+
+<div class="container">
+<%= simple_form_for @user_game do |f| %>
+    <% f.input :user_id, input_html: { value: @user.id }  %>
+    <%= simple_fields_for :game do |c| %>
+        <%= c.input_field :code %> 
+    <% end %>
+    <%= f.submit %>
+<% end %>
+</div>
