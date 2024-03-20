@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="page-title">
+        <h1>Mes pronos</h1>
+    </div>
+
+    <div class="filter-by-date">
+
+    </div>
+
+    <div class="matchs">
+        <div class="date">
+            <p>Samedi 15 juin</p>
+        </div>
+        <div class="day-matchs">
+            <% @matchs.each do |match| %>
+               <div> <%= match.group %> : <%= match.home_team.name %> - <%= match.away_team.name %> </div>
+            <% end %>
+        </div>
+    </div>
+
+</div>
+
