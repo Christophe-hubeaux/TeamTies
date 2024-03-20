@@ -17,8 +17,8 @@ User.destroy_all
 
 user1 = User.create!(
   email: 'a3e7d6@gmail.com',
-  password: '123456',
-  password_confirmation: '123456',
+  password: '123456?',
+  password_confirmation: '123456?',
   pseudo: 'gemmers',
   department: 'IT'
 )
@@ -29,6 +29,14 @@ user2 = User.create!(
   password_confirmation: 'test01',
   pseudo: 'Chris',
   department: 'IT'
+)
+
+user3 = User.create!(
+  email: 'test@test.com',
+  password: '123456', # 6 caractères minimum
+  password_confirmation: '123456',
+  pseudo: 'Alicia',
+  department: 'IA'
 )
 
 albania = Team.create!(name: 'Albania', flag: 'flag_albania')
@@ -55,12 +63,14 @@ turkey = Team.create!(name: 'Türkiye', flag: 'flag_turkey')
 playoffwinner = Team.create!(name: 'Play-Off Winner', flag: 'flag_turkey')
 
 blueteam1 = Game.create!(name: 'Équipe bleue')
+redteam1 = Game.create!(name: 'Équipe rouge')
 
-usergame1 = UsersGame.create!(user: user1, game: blueteam1, total_score: 0)
-usergame1 = UsersGame.create!(user: user2, game: blueteam1, total_score: 0)
+UsersGame.create!(user: user1, game: blueteam1, total_score: 0)
+UsersGame.create!(user: user2, game: blueteam1, total_score: 0)
+UsersGame.create!(user: user3, game: redteam1, total_score: 0)
 
 match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, date: Date.parse('2024-06-14 22:00:00'))
-# match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: Date.parse('2024-06-15 16:00:00'))
+match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: Date.parse('2024-06-15 16:00:00'))
 # match3 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: spain, away_team: croatia, date: Date.parse('2024-06-15 19:00:00'))
 # match4 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: italy, away_team: albania, date: Date.parse('2024-06-15 22:00:00'))
 # match5 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: playoffwinner, away_team: netherlands, date: Date.parse('2024-06-16 16:00:00'))
@@ -74,3 +84,6 @@ match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA 
 
 pronostic1 = Pronostic.create!(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: blueteam1, status: 'pending')
 pronostic2 = Pronostic.create!(match: match1, user: user2, home_team_prono: 0, away_team_prono: 3, game: blueteam1, status: 'pending')
+pronostic3 = Pronostic.create!(match: match2, user: user1, home_team_prono: 4, away_team_prono: 1, game: blueteam1, status: 'pending')
+pronostic4 = Pronostic.create!(match: match2, user: user2, home_team_prono: 3, away_team_prono: 2, game: blueteam1, status: 'pending')
+pronostic5 = Pronostic.create!(match: match1, user: user3, home_team_prono: 2, away_team_prono: 2, game: redteam1, status: 'pending')
