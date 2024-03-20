@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users_games, only: [:new, :create]
+
   namespace :organisateur do
     resources :games, only: [:edit] # /organisateur/games/edit
   end
