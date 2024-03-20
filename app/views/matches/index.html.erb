@@ -4,16 +4,23 @@
     </div>
 
     <div class="filter-by-date">
-
     </div>
 
     <div class="matchs">
         <div class="date">
-            <p>Samedi 15 juin</p>
+            <h3>Vendredi 14 juin</h3>
         </div>
         <div class="day-matchs">
             <% @matchs.each do |match| %>
-               <div> <%= match.group %> : <%= match.home_team.name %> - <%= match.away_team.name %> </div>
+                <%= render "shared/match", match: match %>            
+            <% end %>
+        </div>
+        <div class="date">
+            <h3>Samedi 15 juin</h3>
+        </div>
+        <div class="day-matchs">
+            <% @matchs.each do |match| %>
+                <%= render "shared/match", match: match %>            
             <% end %>
         </div>
     </div>
