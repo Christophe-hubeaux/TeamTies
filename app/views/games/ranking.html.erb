@@ -1,0 +1,29 @@
+<%# <% if @users_ranking.present? %> 
+  <div style="display: flex;">
+    <div style="flex: 1;">
+      <h2>Classement Individuel</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Utilisateur</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users_ranking.each do |user| %>
+            <tr>
+              <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
+              <td><%= user.respond_to?(:total_score) ? user.total_score : user[1] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <p>Aucune donnée de classement n'est disponible pour le moment.</p>
+<% end %>
+
+<% if @total_score.present? %>
+  <p>Score Total: <%= @total_score %></p>
+<% end %>
