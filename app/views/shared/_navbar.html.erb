@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "logo-teamties.png", class: "logo" %>
+      <%= image_tag "logo.png", class: "logo" %>
     <% end %>
-
+    <h1 class="teamties">TEAMTIES</h1>
     <button class="navbar-toggler" type="button" datga-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "ACCUEIL", root_path, class: "nav-link navbar-font" %>
+            <%= link_to "HOME", root_path, class: "nav-link navbar-font" %>
           </li>
           <li class="nav-item">
             <%= link_to "DASHBOARD", dashboard_game_path(@game), class: "nav-link navbar-font" %>
@@ -21,7 +21,7 @@
             <!-- espace vide -->
           </li>
           <li class="nav-item">
-            <%= link_to "MES PRONOS", game_matches_path(@game), class: "nav-link navbar-font" %>
+            <%= link_to "PRONOS", game_matches_path(@game), class: "nav-link navbar-font" %>
           </li>
           <li class="nav-item">
             <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
