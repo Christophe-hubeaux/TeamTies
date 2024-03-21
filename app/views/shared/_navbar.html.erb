@@ -14,6 +14,7 @@
           <li class="nav-item active">
             <%= link_to "HOME", root_path, class: "nav-link navbar-font" %>
           </li>
+          <% if !@game.nil? && @game.persisted? %>
           <li class="nav-item">
             <%= link_to "DASHBOARD", dashboard_game_path(@game), class: "nav-link navbar-font" %>
           </li>
@@ -26,6 +27,7 @@
           <li class="nav-item">
             <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
           </li>
+          <% end %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
