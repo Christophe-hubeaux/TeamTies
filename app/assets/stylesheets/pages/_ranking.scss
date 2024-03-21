@@ -1,0 +1,31 @@
+.ranking-container {
+  margin: 50px 30px;
+}
+
+.ranking-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-cat-left {
+  text-align: right;
+}
+
+.title-cat-right {
+  text-align: left;
+}
+
+table {
+  width: 400px;
+  text-align: right;
+}
+
+.ranking-category-left {
+  width: 500px;
+  text-align: -webkit-right;
+}
+
+.ranking-category-right {
+  width: 500px;
+  text-align: -webkit-left;
+}
