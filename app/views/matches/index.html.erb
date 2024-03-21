@@ -1,22 +1,58 @@
 <div class="container">
-    <div class="page-title">
+    <div class="page-title mt-5">
         <h1>Mes pronos</h1>
     </div>
 
     <div class="filter-by-date">
-
     </div>
 
     <div class="matchs">
+
         <div class="date">
-            <p>Samedi 15 juin</p>
+            <h3>Vendredi 14 juin</h3>
         </div>
         <div class="day-matchs">
-            <% @matchs.each do |match| %>
-               <div> <%= match.group %> : <%= match.home_team.name %> - <%= match.away_team.name %> </div>
+            <% @matchs_2024_06_14.each do |match| %>
+                <%= render "shared/match", match: match %>            
             <% end %>
         </div>
-    </div>
 
+        <div class="date">
+            <h3>Samedi 15 juin</h3>
+        </div>
+        <div class="day-matchs">
+            <% @matchs_2024_06_15.each do |match| %>
+                <%= render "shared/match", match: match %>            
+            <% end %>
+        </div>
+
+        <div class="date">
+            <h3>Dimanche 16 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_16.each do |match| %>
+                <%= render "shared/match", match: match %>            
+            <% end %>
+        </div>
+
+        <div class="date">
+            <h3>Lundi 17 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_17.each do |match| %>
+                <%= render "shared/match", match: match %>            
+            <% end %>
+        </div>
+
+        <div class="date">
+            <h3>Mardi 18 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_18.each do |match| %>
+                <%= render "shared/match", match: match %>            
+            <% end %>
+        </div>
+
+    </div>
 </div>
 

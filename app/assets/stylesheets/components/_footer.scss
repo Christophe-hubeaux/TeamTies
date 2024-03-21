@@ -15,8 +15,8 @@
   display: inline-block;
   align-items: center;
   text-align: center;
-  font-family: "Archivo", sans-serif;
-  font-weight: bold;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
 }
 .footer-links a {
   opacity: 0.8;
@@ -30,9 +30,10 @@
 }
 
 .footer-copyright {
-  font-family: "Archivo", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 200;
 }
 .footer-text {
-  line-height: 35px;
+  font-size: 20px;
+  letter-spacing: 1px;
 }

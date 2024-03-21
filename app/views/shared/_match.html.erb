@@ -1,0 +1,54 @@
+
+<div class="match"> 
+    <div class="home-team">
+        <div class="flag">
+        </div>
+        <div class="team-name">
+            <%= match.home_team.name %> 
+        </div>
+        <div class="shape">
+        </div>
+    </div>
+
+    <div class="score">
+        <div>
+            Groupe <%= match.group %>
+        </div>
+        <div class="prono">
+            <p>Mon prono</p>
+            <div class="my-prono">
+                <div class="team-prono">
+                    <% @pronos.find do |prono| %>
+                        <% if prono.match == match %>
+                            <p><%= prono.home_team_prono %></p>
+                        <% end %>
+                    <% end %>
+                </div>
+                <p> - </p>
+                <div class="team-prono">
+                    <% @pronos.find do |prono| %>
+                        <% if prono.match == match %>
+                        <p><%= prono.away_team_prono %></p>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% if match.date > Date.today %>
+            <div class="result">
+                <p>Résultat</p>
+                <p><%= match.home_team_result %> - <%= match.away_team_result %></p>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="away-team">
+        <div class="flag">
+        </div>
+        <div class="team-name">
+            <%= match.away_team.name %> 
+        </div>
+        <div class="shape">
+        </div>
+    </div>
+</div>
