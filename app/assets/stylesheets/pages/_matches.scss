@@ -1,0 +1,19 @@
+.matchs {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: stretch;
+}
+
+.day-matchs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1.2rem;
+}
+
+// .match {
+//     border: 2px solid #e7e7e7;
+//     border-radius: 4px;
+//     padding: .5rem;
+// }

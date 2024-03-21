@@ -1,0 +1,33 @@
+.match {
+    width: 80%;
+    height: 175px;
+    border-radius: 20px;
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    align-items: center;
+    margin: auto;
+    justify-items: center;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+
+.matchs {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-prono {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.team-prono {
+    border-style: double;
+}
