@@ -1,0 +1,30 @@
+#pronostic_home_team_prono {
+    width: 2.5em;
+    border-radius: 5px;
+}
+
+#pronostic_away_team_prono {
+    width: 2.5em;
+    border-radius: 5px;
+}
+
+.input-prono {
+    display: flex !important;
+    justify-content: space-between;
+}
+.team-prono {
+    width: 2.5em;
+    border-radius: 5px;
+}
+.validation {
+    display: flex !important;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    width: auto;
+    height: 60%;
+}
