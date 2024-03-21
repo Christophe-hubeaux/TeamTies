@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
     def index
+        @game = Game.find(params[:game_id])
         @matchs = Match.all
         @user = current_user
         # @prono = Pronostic.where(user_id: current_user, match_id: @match).pluck(:home_team_prono, :away_team_prono)
