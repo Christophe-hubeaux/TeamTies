@@ -4,7 +4,6 @@ class CreateUsersGames < ActiveRecord::Migration[7.1]
       t.references :user, null: false, foreign_key: true
       t.references :game, null: false, foreign_key: true
       t.integer :total_score
-
       t.timestamps
     end
   end
