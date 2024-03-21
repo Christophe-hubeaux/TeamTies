@@ -22,15 +22,16 @@ class GamesController < ApplicationController
 
     @users_games = UsersGame.where(game_id: @game.id)
 
-    @user_scores = {}
-    @users_games.each do |user_game|
-      user_id = user_game.user_id
-      total_score = user_game.total_score
-      if @user_scores.key?(user_id)
-        @user_scores[user_id] += total_score
-      else
-        @user_scores[user_id] = total_score
+    if @users_games.present?
+      @user_scores = Hash.new(0)
+
+      @users_games.each do |user_game|
+        @user_scores[user_game.user_id] += user_game.total_score.to_i
       end
+
+      @users_ranking = @user_scores.sort_by { |_user_id, score| -score }.to_h.keys.map { |user_id| [User.find(user_id), @user_scores[user_id]] }
+    else
+      @users_ranking = []
     end
   end
 
