@@ -12,27 +12,33 @@
     </div>
 
     <div class="score">
-        <div>
+        <div class="text-center mb-2">
             Groupe <%= match.group %>
         </div>
         <div class="prono">
             <p>Mon prono</p>
-            <div class="my-prono">
-                <div class="team-prono">
-                    <p><%= prono.home_team_prono unless prono.nil? %></p>
+            <% if prono.nil? %>
+                <div>
+                    <%= render "shared/my-prono-form", match: match, prono: @prono %>
                 </div>
-                <p> - </p>
-                <div class="team-prono">
-                    <p><%= prono.away_team_prono unless prono.nil? %></p>
+            <% else %>
+                <div class="input-prono">
+                    <div class="team-prono form-control">
+                        <%= prono.home_team_prono unless prono.nil? %>
+                    </div>
+                    <div class="team-prono form-control">
+                        <p><%= prono.away_team_prono unless prono.nil? %></p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <% if match.date > Date.today %>
-            <div class="result">
+            <% end %>
+
+        <% unless prono.nil? %>
+            <div class="result text-center mt-2">
                 <p>Résultat</p>
-                <p><%= match.home_team_result %> - <%= match.away_team_result %></p>
+                <p><%= match.home_team_result %><%= match.away_team_result %></p>
             </div>
         <% end %>
+        </div>
     </div>
 
     <div class="away-team">
