@@ -1,11 +1,10 @@
-
-<div class="match"> 
+<div class="match">
     <div class="home-team">
-        <div class="flag">
-            <i class="fa-solid fa-flag"></i>
+        <div class="flag flag-left">
+            <img src="<%= match.home_team.flag %>" alt="<%= match.home_team.name %> Flag">
         </div>
         <div class="team-name">
-            <%= match.home_team.name %> 
+            <%= match.home_team.name %>
         </div>
         <div class="shape">
         </div>
@@ -42,11 +41,11 @@
     </div>
 
     <div class="away-team">
-        <div class="flag">
-            <i class="fa-solid fa-flag"></i>
+        <div class="flag flag-right">
+            <img src="<%= match.away_team.flag %>" alt="<%= match.away_team.name %> Flag">
         </div>
         <div class="team-name">
-            <%= match.away_team.name %> 
+            <%= match.away_team.name %>
         </div>
         <div class="shape">
         </div>
