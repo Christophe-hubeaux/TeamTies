@@ -13,7 +13,8 @@
         </div>
         <div class="day-matchs">
             <% @matchs_2024_06_14.each do |match| %>
-                <%= render "shared/match", match: match %>            
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>            
             <% end %>
         </div>
 
@@ -22,7 +23,8 @@
         </div>
         <div class="day-matchs">
             <% @matchs_2024_06_15.each do |match| %>
-                <%= render "shared/match", match: match %>            
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>             
             <% end %>
         </div>
 
@@ -31,7 +33,8 @@
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_16.each do |match| %>
-                <%= render "shared/match", match: match %>            
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>             
             <% end %>
         </div>
 
@@ -40,7 +43,8 @@
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_17.each do |match| %>
-                <%= render "shared/match", match: match %>            
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>             
             <% end %>
         </div>
 
@@ -49,7 +53,8 @@
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_18.each do |match| %>
-                <%= render "shared/match", match: match %>            
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>             
             <% end %>
         </div>
 
