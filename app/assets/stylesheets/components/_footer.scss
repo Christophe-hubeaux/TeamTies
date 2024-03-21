@@ -1,0 +1,39 @@
+.footer {
+  background: linear-gradient(90deg, #844B85 0%, #DD4C58 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  padding: 0px 50px;
+  margin-top: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+.footer-links {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+}
+.footer-links a {
+  opacity: 0.8;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-copyright {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+.footer-text {
+  font-size: 20px;
+  letter-spacing: 1px;
+}

@@ -1,12 +1,14 @@
-<h1>UsersGames#:new</h1>
-<p>Find me in app/views/users_games/:new.html.erb</p>
+<%# <p>Find me in app/views/users_games/:new.html.erb</p> %>
 
 <div class="container">
+<div class="party">
+<h1>Rejoindre une partie</h1>
 <%= simple_form_for @user_game do |f| %>
     <% f.input :user_id, input_html: { value: @user.id }  %>
     <%= simple_fields_for :game do |c| %>
-        <%= c.input_field :code %> 
+        <%= c.input_field :code,  :placeholder => 'Code de la partie' %>
     <% end %>
-    <%= f.submit %>
+    <%= f.button :submit, 'Valider'%>
 <% end %>
+</div>
 </div>
