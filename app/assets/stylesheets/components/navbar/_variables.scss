@@ -21,14 +21,11 @@ $dark-purple: rgba(132, 75, 133, 1);
 $popup: rgba(119, 73, 248, 1);
 
 .navbar-font {
-  font-family: "Assistant-SemiBold", Helvetica;
+  font-family: "Montserrat";
   font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  height: 34px;
-  color: $rouge-team-ties;
-  font-size: 26px;
+  font-weight: 400;
+  color: black;
+  font-size: 20px;
   text-align: center;
-  letter-spacing: 1.3px;
-  line-height: normal;
+  letter-spacing: 1px;
 }

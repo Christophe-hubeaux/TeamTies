@@ -2,15 +2,14 @@
   display: flex;
   justify-content: space-between;
   background-color: $blanc;
-  border-color: $rouge-team-ties;
   box-shadow: 0px 4px 4px #00000040;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
   height: 122px;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 1;
+  margin-left: 50px;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -18,11 +17,20 @@
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 180px;
 }
 
 .navbar-lewagon .navbar-nav {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+}
+.logo {
+  width: 135px;
+  height: 135px;
+}
+
+.teamties {
+  border-right: solid;
+  padding-right: 10px;
+  color: #FE3A4A;
 }

@@ -1,1 +1,73 @@
 // Specific CSS for your home-page
+.home-img {
+  height: 93vh;
+  width: 50%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.37) 0%, rgba(255, 255, 255, 0.37) 100%), url("img-banniere.jpg") lightgray 50% / cover no-repeat;
+}
+
+.home-degrade {
+  background: radial-gradient(137.75% 103.42% at 90.35% 97.6%, #DD4C58 3.6%, #844B85 100%);
+  height: 93vh;
+  width: 50%;
+  position: relative;
+}
+
+.home-degrade h1 {
+  color: #FFF;
+  text-align: left;
+  font-size: 180px;
+  font-weight: 400;
+  letter-spacing: 8px;
+}
+
+.home-ban {
+  display: flex;
+}
+
+.word-ban {
+  position: absolute;
+  left: -27px;
+  top: 90px;
+}
+
+.p-ban {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  position: absolute;
+  left: -272px;
+  top: 470px;
+  text-align: center;
+  width: 600px;
+}
+
+#text-white {
+  color: white;
+  text-shadow: 0px 4px 4px #000;
+}
+
+.p-ban a {
+  background-color: white;
+  width: 190px;
+  opacity: 0.85;
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.p-ban .btn:hover {
+  background-color: white;
+  opacity: 1;
+}
+
+#second-word {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+.btn-right {
+  margin-left: 10px;
+}
+.btn-left {
+  margin-right: 10px;
+}

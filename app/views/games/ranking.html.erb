@@ -1,0 +1,11 @@
+<% if @users_ranking.present? %>
+      <h2>Classement Individuel</h2>
+            <th>Utilisateur</th>
+            <th>Points</th>
+          <% @users_ranking.each do |user, score| %>
+              <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
+              <td><%= score %></td>
+          <% end %>
+<% else %>
+  <p>Aucune donnée de classement n'est disponible pour le moment.</p>
+<% end %>
