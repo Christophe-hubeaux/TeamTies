@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @user_game = UsersGame.find_by(user_id: current_user)
-    @game = @user_game.game_id
+    @game = @user_game.game
   end
 end
