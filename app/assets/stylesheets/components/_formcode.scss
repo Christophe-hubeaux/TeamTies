@@ -1,0 +1,26 @@
+.party {
+  text-align: center;
+  margin: 24vh auto;
+  background-color: #844B85;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  width: 65vh;
+}
+
+#new_users_game {
+  padding: 35px 50px;
+  display: inline-grid;
+  justify-items: center;
+}
+
+#game_code {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+#new_users_game .btn {
+  background-color: white;
+  margin: 10px;
+}
