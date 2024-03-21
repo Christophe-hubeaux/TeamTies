@@ -1,1 +1,38 @@
-<h1>On est sur le dashboard de la partie "<%= @game.name %>"</h1>
+<div class="banner">
+    <div class="container">
+      <%= render "shared/popup" %>
+      <ligne-flex class="row">
+
+        <h2>Mon dashboard de la partie - <%= @game.name %></h2>
+        <h4>👋🏻 Bonjour Christophe ! </h4>
+
+      </ligne-flex>
+
+      <ligne-grid>
+
+        <h4> Performances sur ces 7 derniers jours: </h4>
+        <div class="banner-cards">
+          <div class="banner-card-category">
+            <%= image_tag "v242_54.png", class: "avatar" %>
+            + 12 points
+          </div>
+
+          <div class="banner-card-category">
+            <%= image_tag "v242_55.png", class: "avatar" %>
+            + 2 places au classement individuel
+          </div>
+
+          <div class="banner-card-category">
+            <%= image_tag "v242_56.png", class: "avatar" %>
+            + 1 place au classement par équipe
+          </div>
+        </div>
+
+      </ligne-grid>
+  </div>
+</div>
+
+<div class="dashboard">
+  <%#= render "shared/partial1", class: "partial partial1" %>
+  <%#= render "shared/match", class: "partial partial2" %>
+</div>
