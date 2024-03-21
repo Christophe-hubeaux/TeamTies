@@ -1,25 +1,52 @@
 <% if @users_ranking.present? %>
-  <div style="display: flex;">
-    <div style="flex: 1;">
-      <h2>Classement Individuel</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Utilisateur</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users_ranking.each do |user, score| %>
+  <div class="ranking-container">
+    <h1>CLASSEMENT</h1>
+    <div class="ranking-flex">
+      <div class="ranking-category-left">
+        <h2 class="title-cat-left">Individuel</h2>
+        <table>
+          <thead>
             <tr>
+              <th scope="col">#</th>
+              <th scope="col">Joueur</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr>
+            <% @users_ranking.each do |user, score| %>
+              <th scope="row">1</th>
               <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
               <td><%= score %></td>
-            </tr>
-          <% end %>
+            <% end %>
+          </tr>
         </tbody>
       </table>
+    </div>
+      <div class="ranking-category-right">
+        <h2 class="title-cat-right">Collectif</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Joueur</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% @users_ranking.each do |user, score| %>
+                <th scope="row">1</th>
+                <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
+                <td><%= score %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 <% else %>
   <p>Aucune donnée de classement n'est disponible pour le moment.</p>
 <% end %>
+    </div>
