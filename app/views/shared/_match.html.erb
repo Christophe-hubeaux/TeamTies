@@ -1,11 +1,15 @@
 
-<div class="match"> 
+<div class="match">
     <div class="home-team">
         <div class="flag">
             <i class="fa-solid fa-flag"></i>
         </div>
         <div class="team-name">
-            <%= match.home_team.name %> 
+            <% if match.home_team.present? %>
+                <%= match.home_team.name %>
+            <% else %>
+                Pas de Home Team
+            <% end %>
         </div>
         <div class="shape">
         </div>
@@ -46,7 +50,11 @@
             <i class="fa-solid fa-flag"></i>
         </div>
         <div class="team-name">
-            <%= match.away_team.name %> 
+            <% if match.away_team.present? %>
+                <%= match.away_team.name %>
+            <% else %>
+                Pas de Away Team
+            <% end %>
         </div>
         <div class="shape">
         </div>

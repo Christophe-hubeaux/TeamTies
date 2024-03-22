@@ -15,6 +15,23 @@ class GamesController < ApplicationController
 
   def dashboard
     @game = Game.find(params[:id])
+
+    if Match.exists?(params[:id])
+      @match = Match.find(params[:id])
+    else
+      # donner une valeur par défaut:
+      @match = Match.new
+      # redirect_to root_path
+    end
+
+    @dashboard_individual_rankings = UsersGame.joins(:game, :user)
+                         .select('games.name, users.pseudo, users_games.total_score')
+                         .order(total_score: :desc)
+                         .limit(3)
+    @dashboard_collective_rankings = UsersGame.joins(:game)
+                         .select('games.name, users_games.total_score')
+                         .order(total_score: :desc)
+                         .limit(3)
   end
 
   def ranking
