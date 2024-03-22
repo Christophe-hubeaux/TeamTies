@@ -30,9 +30,9 @@ class GamesController < ApplicationController
                                               .limit(3)
 
     @dashboard_department_rankings = User.joins(:users_games)
-                                         .select('users.department, SUM(users_games.total_score) as total_score')
+                                         .select('users.department, AVG(users_games.total_score) as average_score')
                                          .group('users.department')
-                                         .order('total_score DESC')
+                                         .order('average_score DESC')
                                          .limit(3)
   end
 
