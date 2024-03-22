@@ -16,8 +16,8 @@
             Groupe <%= match.group %>
         </div>
         <div class="prono">
-            <p>Mon prono</p>
-            <% if prono.nil? %>
+            Mon prono
+            <% if prono.nil? && match.date > Date.today %>
                 <div>
                     <%= render "shared/my-prono-form", match: match, prono: @prono %>
                 </div>
@@ -31,10 +31,9 @@
                     </div>
                 </div>
             <% end %>
-
         <% unless prono.nil? %>
-            <div class="result text-center mt-2">
-                <p>Résultat</p>
+            <div class="result">
+                <%= match.date.strftime("%H:%M") %>
                 <p><%= match.home_team_result %><%= match.away_team_result %></p>
             </div>
         <% end %>
