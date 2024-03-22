@@ -40,7 +40,7 @@
               <% @sorted_scores_by_department.each do |department, score_average| %>
                 <tr><th scope="row"><%= @rang += 1 %></th>
                 <td><%=department %></td>
-                <td><%= score_average %></td></tr>
+                <td><%= score_average.round(1) %></td></tr>
               <% end %>
           </tbody>
         </table>
