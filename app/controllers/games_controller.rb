@@ -21,17 +21,19 @@ class GamesController < ApplicationController
     else
       # donner une valeur par défaut:
       @match = Match.new
-      # redirect_to root_path
     end
 
-    @dashboard_individual_rankings = UsersGame.joins(:game, :user)
-                         .select('games.name, users.pseudo, users_games.total_score')
-                         .order(total_score: :desc)
-                         .limit(3)
-    @dashboard_collective_rankings = UsersGame.joins(:game)
-                         .select('games.name, users_games.total_score')
-                         .order(total_score: :desc)
-                         .limit(3)
+    @dashboard_individual_rankings = UsersGame.joins(:user, :game)
+                                              .select('games.name, users.department, users.pseudo, SUM(users_games.total_score) as total_score')
+                                              .group('games.name, users.id, users.department')
+                                              .order('total_score DESC')
+                                              .limit(3)
+
+    @dashboard_department_rankings = User.joins(:users_games)
+                                         .select('users.department, SUM(users_games.total_score) as total_score')
+                                         .group('users.department')
+                                         .order('total_score DESC')
+                                         .limit(3)
   end
 
   def ranking
