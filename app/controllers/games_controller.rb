@@ -9,7 +9,7 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -99,6 +99,6 @@ class GamesController < ApplicationController
   # end
 
   def game_params
-    params.require(:game).permit(:name)
+    params.require(:game).permit(:name, :code)
   end
 end
