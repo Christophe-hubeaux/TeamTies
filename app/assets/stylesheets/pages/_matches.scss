@@ -27,15 +27,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
 .home-team,
 .away-team {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.flag {
-  width: 30px;
-  margin: 0 10px;
+.flag img {
+  width: 50px;
+  height: auto;
+}
+
+.team-flag {
+  position: relative;
+}
+
+.team-flag:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 2px solid #e7e7e7;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.home-team .team-name,
+.away-team .team-name {
+  text-align: center;
 }
