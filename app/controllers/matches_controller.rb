@@ -13,5 +13,4 @@ class MatchesController < ApplicationController
         @matchs_2024_06_19 = Match.where(date: '2024-06-19')
         @matchs_2024_06_20 = Match.where(date: '2024-06-20')
     end
-
 end

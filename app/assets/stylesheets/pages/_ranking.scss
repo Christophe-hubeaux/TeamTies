@@ -1,31 +1,79 @@
 .ranking-container {
-  margin: 50px 30px;
+  margin: 50px;
 }
 
 .ranking-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .title-cat-left {
   text-align: right;
+  border-bottom: solid 2px #FE3A4A;
 }
 
 .title-cat-right {
   text-align: left;
+  border-bottom: solid 2px #FE3A4A;
 }
 
 table {
   width: 400px;
-  text-align: right;
+  line-height: 25px;
 }
 
 .ranking-category-left {
-  width: 500px;
-  text-align: -webkit-right;
+  width: 575px;
 }
 
 .ranking-category-right {
-  width: 500px;
-  text-align: -webkit-left;
+  width: 575px;
+}
+
+.card-table {
+  margin-top: 30px;
+  border-radius: 22px;
+  background: #F5F5F5;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px 30px;
+  padding-left: 80px;
+}
+
+.ranking-category-left thead tr {
+  background-color: #844B85;
+  color: white;
+}
+
+.ranking-category-right thead tr {
+  background-color: #6484a2;
+  color: white;
+}
+
+thead th:nth-child(1) {
+  width: 20%;
+  border-right: solid;
+  text-align: center;
+}
+thead th:nth-child(2) {
+  width: 55%;
+  border-right: solid;
+  text-align: left;
+  padding-left: 10px;
+}
+thead th:nth-child(3) {
+  width: 25%;
+  text-align: center;
+}
+
+tbody th:nth-child(1) {
+  text-align: center;
+}
+tbody td:nth-child(2) {
+  border-bottom: solid thin;
+  border-color: white;
+  text-align: left;
+  padding-left: 10px;
+}
+tbody td:nth-child(3) {
+  text-align: center;
 }

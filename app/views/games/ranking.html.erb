@@ -4,45 +4,47 @@
     <div class="ranking-flex">
       <div class="ranking-category-left">
         <h2 class="title-cat-left">Individuel</h2>
+        <div class="card-table">
         <table>
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Joueur</th>
-              <th scope="col">Points</th>
+              <th scope="col">PSEUDO</th>
+              <th scope="col">POINTS</th>
             </tr>
           </thead>
         <tbody>
-          <tr>
+        <% @rang = 0 %>
             <% @users_ranking.each do |user, score| %>
-              <th scope="row">1</th>
+              <tr><th scope="row"><%= @rang += 1 %></th>
               <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
-              <td><%= score %></td>
+              <td><%= score %></td></tr>
             <% end %>
-          </tr>
         </tbody>
       </table>
+      </div>
     </div>
       <div class="ranking-category-right">
         <h2 class="title-cat-right">Collectif</h2>
+        <div class="card-table">
         <table>
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Equipe</th>
-              <th scope="col">Points</th>
+              <th scope="col">EQUIPE</th>
+              <th scope="col">POINTS</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+              <% @rang = 0 %>
               <% @sorted_scores_by_department.each do |department, score_average| %>
-                <th scope="row">1</th>
+                <tr><th scope="row"><%= @rang += 1 %></th>
                 <td><%=department %></td>
-                <td><%= score_average %></td>
+                <td><%= score_average.round(1) %></td></tr>
               <% end %>
-            </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>

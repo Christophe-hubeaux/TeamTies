@@ -13,7 +13,7 @@
         <% @dashboard_individual_rankings.each_with_index do |a, index| %>
           <tr>
             <th scope="row"><%= index + 1 %></th>
-            <td><%= a.respond_to?(:pseudo) ? a.pseudo : a[0] %> - <%= a.name %></td>
+            <td><%= a.respond_to?(:pseudo) ? a.pseudo : a[0] %></td>
             <td><%= a.total_score %></td>
           </tr>
         <% end %>
@@ -31,16 +31,16 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nom</th>
+        <th scope="col">Équipe</th>
         <th scope="col">Points</th>
       </tr>
     </thead>
     <tbody>
-      <% @dashboard_collective_rankings.each_with_index do |ranking, index| %>
+      <% @dashboard_department_rankings.each_with_index do |ranking, index| %>
         <tr>
           <th scope="row"><%= index + 1 %></th>
-          <td><%= ranking.name %></td>
-          <td><%= ranking.total_score %></td>
+          <td><%= ranking.department %></td>
+          <td><%= ranking.average_score %></td>
         </tr>
       <% end %>
     </tbody>

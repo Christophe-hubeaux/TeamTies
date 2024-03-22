@@ -1,0 +1,16 @@
+#new_game {
+  padding: 35px 50px;
+  display: inline-grid;
+  justify-items: center;
+}
+
+#game_name {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+#new_game .btn {
+  background-color: white;
+  margin: 10px;
+}

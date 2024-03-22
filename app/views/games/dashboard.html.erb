@@ -3,9 +3,10 @@
       <%= render "shared/popup" %>
       <ligne-flex class="row">
 
-        <h2>Mon dashboard de la partie - <%= @game.name %></h2>
-        <h4>👋🏻 Bonjour Christophe ! </h4>
-
+        <h2>Mon dashboard </h2>
+        <p>👋🏻 Bonjour Christophe ! </p>
+        <p>Ton équipe : <%= current_user.department %></p>
+        <p>Partie en cours : <%= @game.name %></p>
       </ligne-flex>
 
       <ligne-grid>
@@ -29,10 +30,17 @@
         </div>
 
       </ligne-grid>
+
   </div>
 </div>
 
-<div class="dashboard">
-  <%= render "shared/ranking" %>
-  <%#= render partial: "shared/match", locals: {match: @match} %>
+<div class="container p-5">
+  <div class="banner-cards d-flex justify-content-center">
+      <div class="banner-card-category" style="min-height:500px;">
+        <%= render "shared/ranking" %>
+      </div>
+      <div class="banner-card-category" style="min-height:500px;">
+        <%#= render partial: "shared/match", locals: {match: @match} %>
+      </div>
+  </div>
 </div>
