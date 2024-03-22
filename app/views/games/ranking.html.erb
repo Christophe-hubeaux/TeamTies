@@ -29,16 +29,16 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Joueur</th>
+              <th scope="col">Equipe</th>
               <th scope="col">Points</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <% @users_ranking.each do |user, score| %>
+              <% @sorted_scores_by_department.each do |department, score_average| %>
                 <th scope="row">1</th>
-                <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
-                <td><%= score %></td>
+                <td><%=department %></td>
+                <td><%= score_average %></td>
               <% end %>
             </tr>
           </tbody>
