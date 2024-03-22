@@ -73,10 +73,10 @@ playoffwinner = Team.create!(name: 'Play-Off Winner', flag: 'https://www.country
 blueteam1 = Game.create!(name: 'Le Wagon - Batch 1598', code: 'A1B2C3')
 # redteam1 = Game.create!(name: 'Équipe rouge')
 
-UsersGame.create!(user: user1, game: blueteam1, total_score: 0)
-UsersGame.create!(user: user2, game: blueteam1, total_score: 0)
-UsersGame.create!(user: user3, game: blueteam1, total_score: 0)
-UsersGame.create!(user: user4, game: blueteam1, total_score: 0)
+UsersGame.create!(user: user1, game: blueteam1, total_score: 15)
+UsersGame.create!(user: user2, game: blueteam1, total_score: 8)
+UsersGame.create!(user: user3, game: blueteam1, total_score: 22)
+UsersGame.create!(user: user4, game: blueteam1, total_score: 2)
 
 match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, date: Time.strptime('06/14/2024 18:00', '%m/%d/%Y %H:%M'))
 match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: Time.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
