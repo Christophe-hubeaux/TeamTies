@@ -17,3 +17,25 @@
 //     border-radius: 4px;
 //     padding: .5rem;
 // }
+
+.flag img {
+  max-width: 100%;
+  height: auto;
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-team,
+.away-team {
+  display: flex;
+  align-items: center;
+}
+
+.flag {
+  width: 30px;
+  margin: 0 10px;
+}
