@@ -63,7 +63,6 @@ class GamesController < ApplicationController
     @users = User.joins(:users_games).where(users_games: { id: @users_games }) # Utilisation de joins pour récupérer les utilisateurs associés aux jeux
     @scores_by_department = Hash.new(0)
     @user_count_by_department = Hash.new(0)
-
     # Collecter les scores et compter les utilisateurs par département
     @users.each do |user|
       department = user.department.to_sym
@@ -71,13 +70,12 @@ class GamesController < ApplicationController
       @scores_by_department[department] += score
       @user_count_by_department[department] += 1
     end
-
     # Diviser les scores par le nombre d'utilisateurs dans chaque département
     @scores_by_department.each_key do |department|
       @scores_by_department[department] /= @user_count_by_department[department].to_f
     end
-
-    @sorted_scores_by_department = @scores_by_department.sort.to_h
+    # Trier les scores par département en fonction de la moyenne (du plus haut au plus bas)
+    @sorted_scores_by_department = @scores_by_department.sort_by { |department, score| -score }.to_h
     @sorted_scores_by_department
   end
 
