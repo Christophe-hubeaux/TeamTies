@@ -10,33 +10,35 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">PSEUDO</th>
+                <th scope="col">EQUIPE</th>
                 <th scope="col">POINTS</th>
               </tr>
             </thead>
             <tbody>
               <% if @dashboard_individual_rankings.present? %>
                 <% @dashboard_individual_rankings.each_with_index do |a, index| %>
+                  <tr>
+                    <th scope="row"><%= index + 1 %></th>
+                    <td><%= a.respond_to?(:pseudo) ? a.pseudo : a[0] %></td>
+                    <td><%= a.department %></td>
+                    <td><%= a.total_score %></td>
+                  </tr>
+                <% end %>
+              <% else %>
                 <tr>
-                  <th scope="row"><%= index + 1 %></th>
-                  <td><%= a.respond_to?(:pseudo) ? a.pseudo : a[0] %></td>
-                  <td><%= a.total_score %></td>
+                  <td colspan="3">Aucune donnée de classement n'est disponible pour le moment.</td>
                 </tr>
               <% end %>
-      <% else %>
-        <tr>
-          <td colspan="3">Aucune donnée de classement n'est disponible pour le moment.</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-          </div>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
 
- <div class="ranking-category-right">
-        <h2 class="title-cat-right">Collectif</h2>
-        <div class="card-table">
+    <div class="ranking-category-right">
+      <h2 class="title-cat-right mt-3">Collectif</h2>
+      <div class="card-table">
         <table>
           <thead>
             <tr>
@@ -46,17 +48,16 @@
             </tr>
           </thead>
           <tbody>
-      <% @dashboard_department_rankings.each_with_index do |ranking, index| %>
-        <tr>
-          <th scope="row"><%= index + 1 %></th>
-          <td><%= ranking.department %></td>
-          <td><%= ranking.average_score %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-        </div>
+            <% @dashboard_department_rankings.each_with_index do |ranking, index| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= ranking.department %></td>
+                <td><%= ranking.average_score %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
-
+  </div>
 </div>

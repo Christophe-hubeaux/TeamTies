@@ -2,13 +2,13 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background: linear-gradient(to left, rgba(132, 75, 133, 0.5) 25%, rgba(221, 76, 88, 0.5) 75%);
+  background: linear-gradient(to left, rgba(132, 75, 133, 0.4) 25%, rgba(221, 76, 88, 0.5) 75%);
   position: relative;
 }
 
 .banner h1 {
   margin: 0;
-  color: white;
+  color: #000;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -16,7 +16,7 @@
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: #000;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -66,8 +66,8 @@
   background: #F5F5F5;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 286px;
+  width: 50px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,12 +81,24 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-/*
-.dashboard {
+.bottom-card-category {
+  background: #F5F5F5;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height: 600px;
 }
-*/
 
 .partial {
   flex: 1 0 auto;
