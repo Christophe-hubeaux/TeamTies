@@ -56,6 +56,18 @@ class GamesController < ApplicationController
     @teamranking = teamranking
   end
 
+  def join
+    game = Game.find_by(code: params[:code])
+    if game
+      UsersGame.create(user: current_user, game: game)
+      redirect_to dashboard_game_path(game), notice: 'Bienvenue! Vous avez bien rejoint la partie!'
+    else
+      # Ici aussi, vous devez rediriger vers une route valide.
+      # Par exemple, vous pouvez rediriger vers la page d'accueil.
+      redirect_to root_path, alert: 'Code Invalide.'
+    end
+  end
+
   private
 
   def teamranking

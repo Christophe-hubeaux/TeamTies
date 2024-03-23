@@ -4,10 +4,19 @@
       <ligne-flex class="row">
 
         <h2>Mon dashboard </h2>
-        <p>👋🏻 Bonjour Christophe ! </p>
-        <p>Departement : <%= current_user.department %></p>
+        <p>👋🏻 Bonjour <%= current_user.pseudo %> ! </p>
+        <p>Équipe : <%= current_user.department %></p>
         <p>Partie en cours : <%= @game.name %></p>
-        <p>Ton Code à partager : <%= @game.code %></p>
+        <p>Ton Code est le : <%= @game.code %></p>
+        <p> Partage ce lien avec ton équipe ! </p>
+
+        <div data-controller="clipboard bounce" class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary alive" type="button" data-action="mouseup->clipboard#copy mouseup->bounce#startBounce" data-bounce-target="button">Copier ce lien</button>
+          </div>
+          <input type="text" value="http://parions.org/join_game/<%= @game.code %>" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" data-clipboard-target="input">
+        </div>
+
       </ligne-flex>
 
       <ligne-grid>
