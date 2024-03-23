@@ -10,15 +10,19 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">PSEUDO</th>
+              <th scope="col">EQUIPE</th>
               <th scope="col">POINTS</th>
             </tr>
           </thead>
         <tbody>
         <% @rang = 0 %>
             <% @users_ranking.each do |user, score| %>
-              <tr><th scope="row"><%= @rang += 1 %></th>
-              <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
-              <td><%= score %></td></tr>
+              <tr>
+                <th scope="row"><%= @rang += 1 %></th>
+                <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
+                <td><%= user.department %></td>
+                <td><%= score %></td>
+              </tr>
             <% end %>
         </tbody>
       </table>
