@@ -69,6 +69,10 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  # Better_error full features GEM :
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
