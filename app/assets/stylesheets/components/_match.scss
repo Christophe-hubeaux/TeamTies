@@ -22,9 +22,6 @@
     flex-direction: column;
 }
 
-.prono {
-}
-
 .my-prono {
     display: flex;
     flex-direction: row;
@@ -34,4 +31,11 @@
 .team-prono {
     border-style: double;
     height: 38px;
+}
+
+.result {
+    text-align:center;
+    margin-top: 1em;
+    background-color: white;
+    border-radius: 5px;
 }

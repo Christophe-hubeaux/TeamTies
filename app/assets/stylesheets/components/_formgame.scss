@@ -10,7 +10,17 @@
   padding: 7px;
 }
 
+#game_code {
+  margin-top: 7px;
+}
+
+
 #new_game .btn {
   background-color: white;
   margin: 10px;
+}
+
+#new_game .btn:hover {
+  color: #844B85;
+  background-color: #F5F5F5;
 }
