@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
         @game = Game.find(params[:game_id])
         @matchs = Match.all
         @user = current_user
-        @pronos = Pronostic.where(user_id: current_user)
+        @pronos = Pronostic.where(user: current_user, game: @game )
         @prono = Pronostic.new
         @matchs_2024_06_14 = Match.where("DATE(date) = ?", Date.parse('2024-06-14'))
         @matchs_2024_06_15 = Match.where("DATE(date) = ?", Date.parse('2024-06-15'))

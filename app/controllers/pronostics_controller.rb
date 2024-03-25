@@ -5,24 +5,12 @@ class PronosticsController < ApplicationController
         @prono.user = current_user
         @prono.match = Match.find(params[:match_id])
         @prono.game = @game
-        if @prono.save
-            redirect_to game_matches_path(@game)
-        else
-            render "matches/index", status: :unprocessable_entity
-        end
+        @prono.save
     end
 
     def update
         @game = Game.find(params[:game_id])
         @prono = Pronostic.update(prono_params)
-        @prono.user = current_user
-        @prono.match = Match.find(params[:match_id])
-        @prono.game = @game
-        if @prono.save
-            redirect_to game_matches_path(@game)
-        else
-            render "matches/index", status: :unprocessable_entity
-        end
     end
 
     private
