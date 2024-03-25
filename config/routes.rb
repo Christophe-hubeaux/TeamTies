@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :users_games, only: [:new, :create]
 
   namespace :organisateur do
-    resources :games, only: [:edit] # /organisateur/games/edit
+    resources :games, only: [:edit] do # /organisateur/games/edit
+      resources :departments, only: [:create]
+    end
   end
 
   get 'join_game/:code', to: 'games#join', as: :join_game

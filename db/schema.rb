@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_093504) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_195350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_departments_on_game_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -83,15 +91,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093504) do
     t.integer "total_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_users_games_on_department_id"
     t.index ["game_id"], name: "index_users_games_on_game_id"
     t.index ["user_id"], name: "index_users_games_on_user_id"
   end
 
+  add_foreign_key "departments", "games"
   add_foreign_key "matches", "teams", column: "away_team_id"
   add_foreign_key "matches", "teams", column: "home_team_id"
   add_foreign_key "pronostics", "games"
   add_foreign_key "pronostics", "matches"
   add_foreign_key "pronostics", "users"
+  add_foreign_key "users_games", "departments"
   add_foreign_key "users_games", "games"
   add_foreign_key "users_games", "users"
 end

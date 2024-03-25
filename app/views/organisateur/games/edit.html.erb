@@ -1,0 +1,36 @@
+
+<div class="edit-container">
+    <h1><%= @game.name %></h1>
+    <div class="edit-flex">
+        <div class="edit-category-right">
+            <h2 class="title-cat-right">Liste des équipes</h2>
+            <div class="card-table">
+                <table>
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Nombre de participants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% @rang = 0 %>
+                        <% @game_departments.each do |department| %>
+                        <tr>
+                            <th scope="row"><%= @rang += 1 %></th>
+                            <td><%= department.name %></td>
+                            <td><%= UsersGame.where(department: department).count %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <%= render "shared/edit-game" %> 
+            </div>
+        </div>
+        <div class="edit-category-right">
+            <h2 class="title-cat-right">Liste des participants</h2>
+            <div class="card-table">
+            </div>
+        </div>
+    </div>
+</div>
