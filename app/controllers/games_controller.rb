@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @user_game = UsersGame.create!(user: current_user, game: @game)
+    @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
       redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
@@ -99,6 +100,6 @@ class GamesController < ApplicationController
   # end
 
   def game_params
-    params.require(:game).permit(:name)
+    params.require(:game).permit(:name, :user_id)
   end
 end
