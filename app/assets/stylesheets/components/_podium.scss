@@ -17,41 +17,42 @@
 .podium-table {
   margin-top: 30px;
   border-radius: 22px;
-  background: #F5F5F5;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 20px 30px;
   padding-left: 62px;
-  height: 400px;
+  height: auto;
+}
+
+.podium-category-ind tbody tr:nth-child(odd) {
+  background-color: #e2d2e2;
 }
 
 .podium-category-ind thead tr {
-  background-color: #844B85;
-  color: white;
+  color: #844B85;
   line-height: 30px;
 }
 
+.podium-category-col tbody tr:nth-child(odd) {
+  background-color: #daeaf9;
+}
+
 .podium-category-col thead tr {
-  background-color: #6484a2;
-  color: white;
+  color: #6484a2;
   line-height: 30px;
 }
 
 .podium-category-ind thead th:nth-child(1) {
   width: 5%;
-  border-right: solid;
   text-align: center;
 }
 
 .podium-category-ind thead th:nth-child(2) {
   width: 40%;
-  border-right: solid;
   text-align: left;
   padding-left: 10px;
 }
 
 .podium-category-ind thead th:nth-child(3) {
   width: 40%;
-  border-right: solid;
   text-align: left;
   padding-left: 10px;
 }
@@ -63,64 +64,49 @@
 
 .podium-category-ind tbody th:nth-child(1) {
   text-align: center;
-  border-bottom: solid thin;
-  border-color: white;
 }
 
 .podium-category-ind tbody td:nth-child(2) {
-  border-bottom: solid thin;
-  border-color: white;
   text-align: left;
   padding-left: 10px;
 }
 
 .podium-category-ind tbody td:nth-child(3) {
-  border-bottom: solid thin;
-  border-color: white;
   text-align: left;
   padding-left: 10px;
 }
 
 .podium-category-ind tbody td:nth-child(4) {
-  border-bottom: solid thin;
-  border-color: white;
   text-align: center;
+  font-weight: 600;
 }
 
 .podium-category-col thead th:nth-child(1) {
   width: 5%;
-  border-right: solid;
   text-align: center;
 }
 
 .podium-category-col thead th:nth-child(2) {
   width: 80%;
-  border-right: solid;
   text-align: left;
   padding-left: 10px;
 }
 
 .podium-category-col thead th:nth-child(3) {
   width: 15%;
-  border-right: solid;
   text-align: center;
 }
 
 .podium-category-col tbody th:nth-child(1) {
   text-align: center;
-  border-bottom: solid thin;
-  border-color: white;
-}
+  }
 
 .podium-category-col tbody td:nth-child(2) {
-  border-bottom: solid thin;
-  border-color: white;
   text-align: left;
   padding-left: 10px;
 }
 
 .podium-category-col tbody td:nth-child(3) {
-  border-bottom: solid thin;
-  border-color: white;
   text-align: center;
+  font-weight: 600;
 }
