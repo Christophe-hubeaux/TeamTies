@@ -31,12 +31,16 @@
                     </div>
                 </div>
             <% end %>
-        <% unless prono.nil? %>
-            <div class="result">
-                <%= match.date.strftime("%H:%M") %>
-                <p><%= match.home_team_result %><%= match.away_team_result %></p>
-            </div>
-        <% end %>
+            <% if match.home_team_result.nil? %>
+                <div class="result">
+                    <%= match.date.strftime("%H:%M") %>
+                </div>
+            <% else %>
+                <div class="result">
+                    <div>Score final</div>
+                    <%= match.home_team_result %> - <%= match.away_team_result %>
+                </div>
+            <% end %>
         </div>
     </div>
 
