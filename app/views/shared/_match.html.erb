@@ -4,23 +4,25 @@
             <img src="<%= match.home_team.flag %>" alt="<%= match.home_team.name %> Flag">
         </div>
         <div class="team-name">
-
             <%= match.home_team.name %>
         </div>
         <div class="shape">
         </div>
     </div>
-
     <div class="score">
         <div class="text-center mb-2">
             Groupe <%= match.group %>
         </div>
         <div class="prono">
             Mon prono
-            <% if prono.nil? && match.date > Date.today %>
-                <div>
-                    <%= render "shared/my-prono-form", match: match, prono: @prono %>
-                </div>
+            <% if prono.nil? && match.date > Date.today && !@dashboard %>
+              <div>
+                <%= render "shared/my-prono-form", match: match, prono: @prono %>
+              </div>
+            <% elsif @dashboard %>
+              <div>
+                <%= render "shared/my-prono-form-readonly", match: match, prono: @prono %>
+              </div>
             <% else %>
                 <div class="input-prono">
                     <div class="team-prono form-control">
@@ -43,7 +45,6 @@
             <% end %>
         </div>
     </div>
-
     <div class="away-team">
         <div class="flag flag-right">
             <img src="<%= match.away_team.flag %>" alt="<%= match.away_team.name %> Flag">
