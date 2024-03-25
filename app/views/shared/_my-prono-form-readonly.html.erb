@@ -1,8 +1,0 @@
-<div>
-    <%= simple_form_for [@game, match, prono] do |f| %>
-        <div class="input-prono">
-            <%= f.input :home_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric' }, label: false %>
-            <%= f.input :away_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric' }, label: false, disabled: true %>
-        </div>
-<% end %>
-</div>
