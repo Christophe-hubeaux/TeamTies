@@ -4,8 +4,13 @@ class PronosticsController < ApplicationController
         @prono = Pronostic.new(prono_params)
         @prono.user = current_user
         @prono.match = Match.find(params[:match_id])
+        @date = @prono.match.date.strftime("%d/%m")
         @prono.game = @game
-        @prono.save
+        if @prono.save
+            redirect_to game_matches_path(@game, anchor: @date)
+        else
+            render "matches/index", status: :unprocessable_entity
+        end
     end
 
     def update
