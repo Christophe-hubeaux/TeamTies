@@ -15,6 +15,7 @@ class GamesController < ApplicationController
   end
 
   def dashboard
+    @dashboard = true
     @game = Game.find(params[:id])
 
     if Match.exists?(params[:id])
@@ -35,6 +36,11 @@ class GamesController < ApplicationController
                                          .group('users.department')
                                          .order('average_score DESC')
                                          .limit(3)
+
+    @next_three_matches = Match.where("date > ?", Date.today).order(:date).limit(3).map do |match|
+      prono = Pronostic.find_by(match: match, user: current_user)
+      [match, prono]
+    end
   end
 
   def ranking
