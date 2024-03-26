@@ -8,6 +8,7 @@ class GamesController < ApplicationController
     @user_game = UsersGame.create!(user: current_user, game: @game)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
+      @game.create_chat # Créer un chat associé au jeu
       redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
@@ -62,8 +63,7 @@ class GamesController < ApplicationController
       UsersGame.create(user: current_user, game: game)
       redirect_to dashboard_game_path(game), notice: 'Bienvenue! Vous avez bien rejoint la partie!'
     else
-      # Ici aussi, vous devez rediriger vers une route valide.
-      # Par exemple, vous pouvez rediriger vers la page d'accueil.
+
       redirect_to root_path, alert: 'Code Invalide.'
     end
   end
@@ -91,25 +91,6 @@ class GamesController < ApplicationController
     @sorted_scores_by_department = @scores_by_department.sort_by { |department, score| -score }.to_h
     @sorted_scores_by_department
   end
-
-  # on itère sur les user_games avec .map
-  #  a chaque itération on récupère le user et son score
-  # je crée un hash avec en clé le nom du dept (user.dpt) et value les core du user_games
-  # [{IT: 3}, {RH: 5}, {IT: 4}]
-  # fabriquer un deuxieme hash
-  # source = [{IT: 4}, {RH: 4}, {IT: 5}]
-
-  # result = {}
-
-  # source.each do |hash|
-  #   hash.each do |key, value|
-  #     if result[key]
-  #       result[key] += value
-  #     else
-  #       result[key] = value
-  #     end
-  #   end
-  # end
 
   def game_params
     params.require(:game).permit(:name, :user_id)

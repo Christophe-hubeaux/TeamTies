@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+import "@rails/actioncable"
 
 import { Application } from "@hotwired/stimulus"
 import ClipboardController from "controllers/clipboard_controller"

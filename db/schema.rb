@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_22_221141) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_130913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "game_id", null: false
+    t.index ["game_id"], name: "index_chats_on_game_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -34,6 +42,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_221141) do
     t.datetime "updated_at", null: false
     t.index ["away_team_id"], name: "index_matches_on_away_team_id"
     t.index ["home_team_id"], name: "index_matches_on_home_team_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pronostics", force: :cascade do |t|
@@ -82,8 +100,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_22_221141) do
     t.index ["user_id"], name: "index_users_games_on_user_id"
   end
 
+  add_foreign_key "chats", "games"
   add_foreign_key "matches", "teams", column: "away_team_id"
   add_foreign_key "matches", "teams", column: "home_team_id"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "users"
   add_foreign_key "pronostics", "games"
   add_foreign_key "pronostics", "matches"
   add_foreign_key "pronostics", "users"
