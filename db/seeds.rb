@@ -80,10 +80,10 @@ dept3 = Department.create!(name: "GrownUp Hack", game: blueteam1)
 dept4 = Department.create!(name: "La récolte connectée", game: blueteam1)
 
 
-UsersGame.create!(user: user1, game: blueteam1, total_score: 15, department_id: dept1.id)
-UsersGame.create!(user: user2, game: blueteam1, total_score: 8, department_id: dept1.id)
-UsersGame.create!(user: user3, game: blueteam1, total_score: 22, department_id: dept2.id)
-UsersGame.create!(user: user4, game: blueteam1, total_score: 2, department_id: dept4.id)
+UsersGame.create!(user: user1, game: blueteam1, total_score: 15, department: dept1)
+UsersGame.create!(user: user2, game: blueteam1, total_score: 8, department: dept1)
+UsersGame.create!(user: user3, game: blueteam1, total_score: 22, department: dept2)
+UsersGame.create!(user: user4, game: blueteam1, total_score: 2, department: dept4)
 
 match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, home_team_result: 2, away_team_result: 1, date: DateTime.strptime('06/14/2024 18:00', '%m/%d/%Y %H:%M'))
 match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: DateTime.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
