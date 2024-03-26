@@ -17,7 +17,7 @@
   border-bottom: solid 2px #FE3A4A;
 }
 
-table {
+.card-table table {
   width: 600px;
   line-height: 25px;
 }
@@ -101,6 +101,7 @@ table {
   border-bottom: solid thin;
   border-color: white;
   text-align: center;
+  font-weight: 600;
 }
 
 .ranking-category-right thead th:nth-child(1) {
@@ -139,4 +140,5 @@ table {
   border-bottom: solid thin;
   border-color: white;
   text-align: center;
+  font-weight: 600;
 }
