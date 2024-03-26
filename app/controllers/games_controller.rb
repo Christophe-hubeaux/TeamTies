@@ -5,10 +5,11 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @user_game = UsersGame.create!(user: current_user, game: @game)
+    # @user_game = UsersGame.create!(user: current_user, game: @game, department: nil)
+    # @organisator = User.find(user: current_user)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
-      redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
+      redirect_to edit_organisateur_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
     end
@@ -73,7 +74,13 @@ class GamesController < ApplicationController
     end
   end
 
-
+  def check_code
+    @game = Game.find_by(code: params[:code])
+    if @game
+      flash[:notice] = "Le code du jeu est valide."
+      redirect_to new_game_users_game_path(@game)
+    end
+  end
 
   private
 
