@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_195350) do
     t.bigint "game_id", null: false
     t.index ["game_id"], name: "index_chats_on_game_id"
   end
-
+  
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.bigint "game_id", null: false

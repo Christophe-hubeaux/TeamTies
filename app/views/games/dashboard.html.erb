@@ -7,7 +7,7 @@
         </div>
         <p>Voici tes informations de jeu :</p>
         <div class="infos-flex">
-        <p><strong>Équipe : </strong><%= @department.name %></p>
+        <p><strong>Équipe : </strong><%= current_user.department %></p>
         <p><strong>Nom de la partie :</strong> <%= @game.name %></p>
         <p><strong>Code de la partie :</strong> <%= @game.code %></p>
         </div>
