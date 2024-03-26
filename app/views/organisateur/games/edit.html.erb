@@ -24,12 +24,37 @@
                         <% end %>
                     </tbody>
                 </table>
-                <%= render "shared/edit-game" %> 
+                <div data-controller="newteam">
+                    <div class="team-add">Ajouter une équipe<i class="fa-solid fa-circle-plus" data-newteam-target="btn" data-action="click->newteam#display"></i>
+                    </div>
+                    <div class="d-none" data-newteam-target="form">
+                        <%= render "shared/edit-game" %> 
+                    </div>
+                </div>
             </div>
         </div>
         <div class="edit-category-right">
             <h2 class="title-cat-right">Liste des participants</h2>
             <div class="card-table">
+                <table>
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Equipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% @rang = 0 %>
+                        <% @game_users.each do |user| %>
+                        <tr>
+                            <th scope="row"><%= @rang += 1 %></th>
+                            <td><%= user.user.pseudo %></td>
+                            <td><%= user.department.name %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
