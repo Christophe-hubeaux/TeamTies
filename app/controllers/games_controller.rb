@@ -5,11 +5,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @user_game = UsersGame.create!(user: current_user, game: @game)
+    # @user_game = UsersGame.create!(user: current_user, game: @game, department: nil)
+    # @organisator = User.find(user: current_user)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
       @game.create_chat # Créer un chat associé au jeu
-      redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
+      redirect_to edit_organisateur_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
     end
@@ -18,7 +19,7 @@ class GamesController < ApplicationController
   def dashboard
     @dashboard = true
     @game = Game.find(params[:id])
-
+    @department = UsersGame.find_by(user: current_user).department
     if Match.exists?(params[:id])
       @match = Match.find(params[:id])
     else
@@ -46,7 +47,6 @@ class GamesController < ApplicationController
 
   def ranking
     @game = Game.find(params[:id])
-
     @users_games = UsersGame.where(game_id: @game.id)
 
     if @users_games.present?
@@ -74,18 +74,27 @@ class GamesController < ApplicationController
     end
   end
 
+  def check_code
+    @game = Game.find_by(code: params[:code])
+    if @game
+      flash[:notice] = "Le code du jeu est valide."
+      redirect_to new_game_users_game_path(@game)
+    end
+  end
+
   private
 
   def teamranking
     @game = Game.find(params[:id])
     @users_games = @game.users_games
-    @users = User.joins(:users_games).where(users_games: { id: @users_games }) # Utilisation de joins pour récupérer les utilisateurs associés aux jeux
+    @users = User.joins(:users_games).where(users_games: { id: @users_games }) # Utilisation de joins pour récupérer les utilisateurs associés au jeu
     @scores_by_department = Hash.new(0)
     @user_count_by_department = Hash.new(0)
     # Collecter les scores et compter les utilisateurs par département
-    @users.each do |user|
-      department = user.department.to_sym
-      score = user.users_games.sum(:total_score) # Somme des scores pour un utilisateur donné
+    @users_games.each do |user_game|
+      # department = user.users_games.department.to_sym
+      department = user_game.department.name
+      score = user_game.total_score # Somme des scores pour un utilisateur donné
       @scores_by_department[department] += score
       @user_count_by_department[department] += 1
     end
@@ -95,7 +104,6 @@ class GamesController < ApplicationController
     end
     # Trier les scores par département en fonction de la moyenne (du plus haut au plus bas)
     @sorted_scores_by_department = @scores_by_department.sort_by { |department, score| -score }.to_h
-    @sorted_scores_by_department
   end
 
   def game_params

@@ -2,13 +2,16 @@
 
 <div class="container">
 <div class="party">
-<h1>Rejoindre une partie</h1>
-<%= simple_form_for @user_game do |f| %>
-    <% f.input :user_id, input_html: { value: @user.id }  %>
-    <%= simple_fields_for :game do |c| %>
-        <%= c.input_field :code,  :placeholder => 'Code de la partie' %>
+    <h1>Rejoins ton équipe</h1>
+    <%= simple_form_for [@game, @user_game] do |f| %>
+        <%= f.input :department, collection: @game_departments, prompt: "Choisis une équipe", label: false %>
+        <%= f.button :submit, 'Valider'%>
     <% end %>
-    <%= f.button :submit, 'Valider'%>
-<% end %>
+    </div>
 </div>
-</div>
+
+
+<%# Je demande au user un code %>
+<%# Je retrouve le game correspond à ce code %>
+<%# J'ouvre mon formulaire simple form for %>
+<%# Je créer mon user_game en utilisant les params déjà défini au niveau de mon controller %>
