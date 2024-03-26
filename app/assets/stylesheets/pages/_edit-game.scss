@@ -39,3 +39,16 @@
   align-items: baseline;
   justify-content: flex-start;
 }
+
+.redirect-btn {
+  text-decoration: none;
+  text-decoration: none;
+  background-color: green;
+  padding: 0.5em;
+  color: white;
+  border-radius: 7px;
+}
+
+.redirect-btn:hover {
+  opacity: 80%;
+}

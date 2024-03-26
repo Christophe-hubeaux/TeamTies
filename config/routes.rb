@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :games, only: %i[index new create] do # /games GET user-games index, /games/new GET games new, /game/new POST games create
+    resources :users_games, only: %i[new create]
     resources :teams, only: [:index]
     resources :matches, only: [:index] do
       resources :pronostics, only: %i[create update]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users_games, only: %i[new create]
+  
 
   namespace :organisateur do
     resources :games, only: [:edit] do # /organisateur/games/edit
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
   end
 
   get 'join_game/:code', to: 'games#join', as: :join_game
+  get '/games/check_code', to: 'games#check_code', as: 'games_check_code' 
 end
