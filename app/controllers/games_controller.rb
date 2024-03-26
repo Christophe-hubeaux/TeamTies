@@ -18,7 +18,7 @@ class GamesController < ApplicationController
   def dashboard
     @dashboard = true
     @game = Game.find(params[:id])
-    @department = UsersGame.find_by(user: current_user).department
+    @department = UsersGame.find_by(user: current_user, game: @game).department
     if Match.exists?(params[:id])
       @match = Match.find(params[:id])
     else
