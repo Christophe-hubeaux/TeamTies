@@ -25,15 +25,15 @@ class GamesController < ApplicationController
       @match = Match.new
     end
 
-    @dashboard_individual_rankings = UsersGame.joins(:user, :game)
-                                              .select('games.name, users.department, users.pseudo, SUM(users_games.total_score) as total_score')
-                                              .group('games.name, users.id, users.department')
+    @dashboard_individual_rankings = UsersGame.joins(:user, :game, :department)
+                                              .select('games.name, departments.name as team, users.pseudo, SUM(users_games.total_score) as total_score')
+                                              .group('games.name, users.id, team', )
                                               .order('total_score DESC')
                                               .limit(3)
 
-    @dashboard_department_rankings = User.joins(:users_games)
-                                         .select('users.department, AVG(users_games.total_score) as average_score')
-                                         .group('users.department')
+    @dashboard_department_rankings = UsersGame.joins(:user, :department)
+                                         .select('departments.name as team, AVG(users_games.total_score) as average_score')
+                                         .group('team')
                                          .order('average_score DESC')
                                          .limit(3)
 

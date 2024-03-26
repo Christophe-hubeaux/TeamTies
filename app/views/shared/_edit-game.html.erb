@@ -1,0 +1,10 @@
+<div>
+    <%= simple_form_for @department, url: edit_organisateur_game_path(@game) do |f| %>
+        <div class="input-prono">
+            <%= f.input :name %>
+        </div>
+        <div class="validation">
+            <%= f.button :submit, 'Créer équipe' %>
+        </div>
+    <% end %>
+</div>

@@ -18,7 +18,7 @@
                   <tr>
                     <th scope="row"><%= index + 1 %></th>
                     <td><%= a.respond_to?(:pseudo) ? a.pseudo : a[0] %></td>
-                    <td><%= a.department %></td>
+                    <td><%= a.team %></td>
                     <td><%= a.total_score %></td>
                   </tr>
                 <% end %>
@@ -49,7 +49,7 @@
             <% @dashboard_department_rankings.each_with_index do |ranking, index| %>
               <tr>
                 <th scope="row"><%= index + 1 %></th>
-                <td><%= ranking.department %></td>
+                <td><%= ranking.team %></td>
                 <td><%= ranking.average_score %></td>
               </tr>
             <% end %>
