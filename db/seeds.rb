@@ -11,6 +11,8 @@
 Pronostic.destroy_all
 UsersGame.destroy_all
 Match.destroy_all
+Message.destroy_all
+Chat.destroy_all
 Department.destroy_all
 Game.destroy_all
 Team.destroy_all

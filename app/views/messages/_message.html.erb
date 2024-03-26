@@ -1,0 +1,5 @@
+<div class="message">
+  <p><%= message.content %></p>
+  <p><strong>Envoyé par:</strong> <%= message.user.email %></p>
+  <p><strong>Date:</strong> <%= message.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+</div>
