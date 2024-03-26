@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     @user_game = UsersGame.create!(user: current_user, game: @game)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
-      redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
+      redirect_to new_user_registration_path(code: @game.code), notice: 'La partie a été créée avec succès.'
     else
       render :new
     end
