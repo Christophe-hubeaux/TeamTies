@@ -11,7 +11,8 @@
   </div>
 
   <%= simple_form_for [@chat, @message],
-    html: { class: "d-flex" } do |f| %>
+    html: { data: { action: "turbo:submit-end->chat-subscription#resetForm" }, class: "d-flex" } do |f|
+  %>
     <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chat.name}",
@@ -20,4 +21,3 @@
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>
-
