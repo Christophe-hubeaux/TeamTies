@@ -12,3 +12,30 @@
     text-align: left;
     margin-top: 2em;
 }
+
+.team-add {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  color: #844B85;
+  font-weight: bold;
+}
+
+.fa-circle-plus {
+  margin-left: 0.5em;
+  font-size: 24px;
+  color: #844B85;
+}
+
+.fa-circle-plus:hover {
+  margin-left: 0.5em;
+  font-size: 24px;
+  color: #ab95ab;
+}
+
+.team-form {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
