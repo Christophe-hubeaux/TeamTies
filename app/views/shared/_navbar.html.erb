@@ -32,7 +32,7 @@
             <p></p>
           <% else %>
             <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
-               MESSAGERIE
+               <i class="fa-regular fa-comment-dots"></i> CHAT
             <% end %>
           <% end %>
           </li>
@@ -46,9 +46,9 @@
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
+              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
