@@ -20,8 +20,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :users_games
-  has_many :pronostics
+  has_many :users_games, dependent: :destroy
+  has_many :pronostics, dependent: :destroy
   has_many :games, through: :users_games
   has_one_attached :avatar
 end

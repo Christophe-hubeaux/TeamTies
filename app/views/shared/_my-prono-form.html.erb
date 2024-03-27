@@ -1,11 +1,11 @@
 <div>
-    <%= simple_form_for [@game, match, @prono], html: { data: { controller: "auto-save-prono" } } do |f| %>
+    <%= simple_form_for [@game, match, prono], html: { data: { controller: "auto-save-prono" } } do |f| %>
         <div class="input-prono">
-            <%= f.input :home_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric', data: {action: 'input->auto-save-prono#submit' } }, label: false %>
-            <%= f.input :away_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric', data: {action: 'input->auto-save-prono#submit' }  }, label: false %>
+            <%= f.input :home_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric', data: {action: 'input->auto-save-prono#submit', auto_save_prono_target: "input" } }, label: false %>
+            <%= f.input :away_team_prono, :input_html => { :type => 'text', :inputmode => 'numeric', data: {action: 'input->auto-save-prono#submit', auto_save_prono_target: "input" } }, label: false %>
         </div>
         <div class="validation">
-            <%= f.button :submit, 'Valider' %>
+            <% f.button :submit, 'Valider' %>
         </div>
     <% end %>
 </div>

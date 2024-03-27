@@ -1,0 +1,11 @@
+<%# path : join_game_path(:code) %>
+<div class="container">
+<div class="party">
+    <h1>Rejoindre une partie</h1>
+    <%= form_with url: games_check_code_path, method: :get do |f| %>
+        <%= f.label :code, "Entrez le code du jeu :" %>
+        <%= f.text_field :code %>
+        <%= f.submit "Vérifier le code" %>
+    <% end %>
+    </div>
+</div>

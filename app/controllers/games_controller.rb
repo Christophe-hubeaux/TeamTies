@@ -5,10 +5,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @user_game = UsersGame.create!(user: current_user, game: @game)
+    # @user_game = UsersGame.create!(user: current_user, game: @game, department: nil)
+    # @organisator = User.find(user: current_user)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
-      redirect_to new_user_registration_path(code: @game.code), notice: 'La partie a été créée avec succès.'
+      @game.create_chat # Créer un chat associé au jeu
+      redirect_to edit_organisateur_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
     end
@@ -17,7 +19,7 @@ class GamesController < ApplicationController
   def dashboard
     @dashboard = true
     @game = Game.find(params[:id])
-
+    @department = UsersGame.find_by(user: current_user, game: @game).department
     if Match.exists?(params[:id])
       @match = Match.find(params[:id])
     else
@@ -25,15 +27,15 @@ class GamesController < ApplicationController
       @match = Match.new
     end
 
-    @dashboard_individual_rankings = UsersGame.joins(:user, :game)
-                                              .select('games.name, users.department, users.pseudo, SUM(users_games.total_score) as total_score')
-                                              .group('games.name, users.id, users.department')
+    @dashboard_individual_rankings = UsersGame.joins(:user, :game, :department)
+                                              .select('games.name, departments.name as team, users.pseudo, SUM(users_games.total_score) as total_score')
+                                              .group('games.name, users.id, team', )
                                               .order('total_score DESC')
                                               .limit(3)
 
-    @dashboard_department_rankings = User.joins(:users_games)
-                                         .select('users.department, AVG(users_games.total_score) as average_score')
-                                         .group('users.department')
+    @dashboard_department_rankings = UsersGame.joins(:user, :department)
+                                         .select('departments.name as team, AVG(users_games.total_score) as average_score')
+                                         .group('team')
                                          .order('average_score DESC')
                                          .limit(3)
 
@@ -45,7 +47,6 @@ class GamesController < ApplicationController
 
   def ranking
     @game = Game.find(params[:id])
-
     @users_games = UsersGame.where(game_id: @game.id)
 
     if @users_games.present?
@@ -68,9 +69,16 @@ class GamesController < ApplicationController
       UsersGame.create(user: current_user, game: game)
       redirect_to dashboard_game_path(game), notice: 'Bienvenue! Vous avez bien rejoint la partie!'
     else
-      # Ici aussi, vous devez rediriger vers une route valide.
-      # Par exemple, vous pouvez rediriger vers la page d'accueil.
+
       redirect_to root_path, alert: 'Code Invalide.'
+    end
+  end
+
+  def check_code
+    @game = Game.find_by(code: params[:code])
+    if @game
+      flash[:notice] = "Le code du jeu est valide."
+      redirect_to new_game_users_game_path(@game)
     end
   end
 
@@ -79,13 +87,14 @@ class GamesController < ApplicationController
   def teamranking
     @game = Game.find(params[:id])
     @users_games = @game.users_games
-    @users = User.joins(:users_games).where(users_games: { id: @users_games }) # Utilisation de joins pour récupérer les utilisateurs associés aux jeux
+    @users = User.joins(:users_games).where(users_games: { id: @users_games }) # Utilisation de joins pour récupérer les utilisateurs associés au jeu
     @scores_by_department = Hash.new(0)
     @user_count_by_department = Hash.new(0)
     # Collecter les scores et compter les utilisateurs par département
-    @users.each do |user|
-      department = user.department.to_sym
-      score = user.users_games.sum(:total_score) # Somme des scores pour un utilisateur donné
+    @users_games.each do |user_game|
+      # department = user.users_games.department.to_sym
+      department = user_game.department.name
+      score = user_game.total_score # Somme des scores pour un utilisateur donné
       @scores_by_department[department] += score
       @user_count_by_department[department] += 1
     end
@@ -95,27 +104,7 @@ class GamesController < ApplicationController
     end
     # Trier les scores par département en fonction de la moyenne (du plus haut au plus bas)
     @sorted_scores_by_department = @scores_by_department.sort_by { |department, score| -score }.to_h
-    @sorted_scores_by_department
   end
-
-  # on itère sur les user_games avec .map
-  #  a chaque itération on récupère le user et son score
-  # je crée un hash avec en clé le nom du dept (user.dpt) et value les core du user_games
-  # [{IT: 3}, {RH: 5}, {IT: 4}]
-  # fabriquer un deuxieme hash
-  # source = [{IT: 4}, {RH: 4}, {IT: 5}]
-
-  # result = {}
-
-  # source.each do |hash|
-  #   hash.each do |key, value|
-  #     if result[key]
-  #       result[key] += value
-  #     else
-  #       result[key] = value
-  #     end
-  #   end
-  # end
 
   def game_params
     params.require(:game).permit(:name, :user_id)

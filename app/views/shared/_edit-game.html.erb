@@ -1,0 +1,10 @@
+<div class="team-form">
+    <%= simple_form_for @department, url: organisateur_game_departments_path(@game) do |f| %>
+        <div>
+            <%= f.input :name, label: false, placeholder: "Nom d'équipe" %>
+        </div>
+        <div class="validation">
+            <%= f.button :submit, 'Créer', data: {action: 'click->newteam#display'} %>
+        </div>
+    <% end %>
+</div>

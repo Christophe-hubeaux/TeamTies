@@ -20,7 +20,7 @@
               <tr>
                 <th scope="row"><%= @rang += 1 %></th>
                 <td><%= user.respond_to?(:pseudo) ? user.pseudo : user[0] %></td>
-                <td><%= user.department %></td>
+                <td><%= UsersGame.find_by(user: user).department.name %></td>
                 <td><%= score %></td>
               </tr>
             <% end %>
@@ -43,8 +43,15 @@
               <% @rang = 0 %>
               <% @sorted_scores_by_department.each do |department, score_average| %>
                 <tr><th scope="row"><%= @rang += 1 %></th>
-                <td><%=department %></td>
-                <td><%= score_average.round(1) %></td></tr>
+                  <td><%=department %></td>
+                  <td>
+                    <% if score_average % 1 == 0 %>
+                      <%= score_average.to_i %>
+                    <% else  %>
+                      <%= score_average.round(1) %>
+                    <% end %>
+                  </td>
+                </tr>
               <% end %>
           </tbody>
         </table>
