@@ -1,3 +1,5 @@
+require "byebug"
+
 class GamesController < ApplicationController
   def new
     @game = Game.new
@@ -8,7 +10,8 @@ class GamesController < ApplicationController
     @user_game = UsersGame.create!(user: current_user, game: @game)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
-      redirect_to new_user_registration_path(code: @game.code), notice: 'La partie a été créée avec succès.'
+      session[:game_code] = @game.code # Stocker le code dans la session
+      redirect_to dashboard_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
     end
@@ -63,15 +66,10 @@ class GamesController < ApplicationController
   end
 
   def join
-    game = Game.find_by(code: params[:code])
-    if game
-      UsersGame.create(user: current_user, game: game)
-      redirect_to dashboard_game_path(game), notice: 'Bienvenue! Vous avez bien rejoint la partie!'
-    else
-      # Ici aussi, vous devez rediriger vers une route valide.
-      # Par exemple, vous pouvez rediriger vers la page d'accueil.
-      redirect_to root_path, alert: 'Code Invalide.'
-    end
+    game_code = params[:code]
+    session[:game_code] = game_code
+    byebug
+    redirect_to new_user_registration_path
   end
 
   private

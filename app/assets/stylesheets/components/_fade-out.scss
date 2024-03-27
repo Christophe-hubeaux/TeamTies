@@ -1,0 +1,15 @@
+.fade-out {
+  opacity: 0;
+  height: 0;
+  transition: opacity 3.0s ease-out, height 3.0s ease-out;
+  /* transition de l'opacité et de la hauteur sur 3.0 secondes */
+}
+
+@media (max-width: 600px) {
+  .fade-out {
+  opacity: 0;
+  height: 0;
+  transition: opacity 3.0s ease-out, height 3.0s ease-out;
+  /* transition de l'opacité et de la hauteur sur 3.0 secondes */
+  }
+}

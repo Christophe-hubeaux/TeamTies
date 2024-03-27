@@ -10,13 +10,24 @@ module Users
     before_action :configure_sign_up_params, only: [:create]
     # before_action :configure_account_update_params, only: [:update]
 
+    def new
+      session[:game_code] = params[:code]
+      super
+    end
+
     def create
       build_resource(sign_up_params)
       uploaded_file = params[:user][:avatar]  # Get the uploaded file
-      resource.avatar.attach(uploaded_file) if uploaded_file  # Attach the file to the resource
-
+      resource.avatar.attach(uploaded_file) if uploaded_file  # Attach the file to the resourceb
       if resource.save
-        resize_and_upload_avatar(uploaded_file)  # Pass the uploaded file to the method
+
+        resize_and_upload_avatar(uploaded_file)
+        game = Game.find_by(code: session[:game_code])
+        if game
+          # Créez une nouvelle entrée dans la table des participations (users_games)
+          # exemple : l'utilisateur 1 participe au jeu 1
+          UsersGame.create(user: resource, game: game)
+        end
         sign_up_user
       else
         clean_up_passwords resource
@@ -52,6 +63,7 @@ module Users
 
     def sign_up_user
       if resource.active_for_authentication?
+
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
@@ -64,8 +76,12 @@ module Users
 
     def after_sign_up_path_for(resource)
       if resource.active_for_authentication?
-        code = params[:code] || request.path.split('/').last
-        params[:code].present? ? dashboard_game_path(Game.find_by(code: code)) : root_path
+        
+        if session[:game_code].present?
+          root_path  # Rediriger vers la page d'accueil
+        else
+          root_path  # Rediriger vers la page d'accueil par défaut
+        end
       else
         after_inactive_sign_up_path_for(resource)
       end

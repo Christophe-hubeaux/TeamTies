@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       get :dashboard
       get :ranking
+      get :join
     end
   end
 
@@ -22,6 +23,4 @@ Rails.application.routes.draw do
   namespace :organisateur do
     resources :games, only: [:edit] # /organisateur/games/edit
   end
-
-  get 'join_game/:code', to: 'games#join', as: :join_game
 end
