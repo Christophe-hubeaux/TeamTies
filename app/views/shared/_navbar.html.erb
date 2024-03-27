@@ -4,7 +4,7 @@
       <%= image_tag "logo.png", class: "logo" %>
     <% end %>
     <h1 class="teamties">TEAMTIES</h1>
-    <button class="navbar-toggler" type="button" datga-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -30,7 +30,11 @@
           <% end %>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>
+            <% else %>
+              <%= image_tag "1824147.svg", class: "avatar-large", alt: "avatar dropdown menu" %>
+            <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>

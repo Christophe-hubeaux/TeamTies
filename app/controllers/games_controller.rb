@@ -1,3 +1,5 @@
+require "byebug"
+
 class GamesController < ApplicationController
   def new
     @game = Game.new
@@ -10,6 +12,7 @@ class GamesController < ApplicationController
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
       @game.create_chat # Créer un chat associé au jeu
+      session[:game_code] = @game.code # Stocker le code dans la session
       redirect_to edit_organisateur_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
       render :new
@@ -64,12 +67,13 @@ class GamesController < ApplicationController
   end
 
   def join
+    game_code = params[:code]
+    session[:game_code] = game_code
     game = Game.find_by(code: params[:code])
     if game
       UsersGame.create(user: current_user, game: game)
       redirect_to dashboard_game_path(game), notice: 'Bienvenue! Vous avez bien rejoint la partie!'
     else
-
       redirect_to root_path, alert: 'Code Invalide.'
     end
   end
