@@ -41,11 +41,18 @@
   border: none;
   border-radius: 5px;
   padding: 7px;
-  margin-top: 2em;
 }
 
 #code {
   border: none;
   border-radius: 5px;
   padding: 7px;
+}
+
+.mb-3.select.optional.users_game_department {
+  width: 150%;
+}
+
+.mb-3.string.optional.users_game_department {
+  width: 150%;
 }
