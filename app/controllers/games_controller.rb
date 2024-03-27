@@ -22,6 +22,7 @@ class GamesController < ApplicationController
     @dashboard = true
     @game = Game.find(params[:id])
     @department = UsersGame.find_by(user: current_user, game: @game).department
+    @owner = UsersGame.find_by(user: current_user, game: @game).owner
     if Match.exists?(params[:id])
       @match = Match.find(params[:id])
     else
