@@ -13,4 +13,8 @@ class Message < ApplicationRecord
   def to_partial_path
     'messages/message'
   end
+
+  def sender?(a_user)
+    user.id == a_user.id
+  end
 end
