@@ -1,0 +1,64 @@
+.section-sign-in {
+  background-image: linear-gradient(270deg, #844B85, #dd4c58);
+  background-size: 200% 200%;
+  animation: TransitioningBackground 10s ease infinite;
+}
+
+@keyframes TransitioningBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Titre du formulaire */
+.title-form {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #393f81;
+}
+
+/* Bouton de soumission */
+.btn-primary {
+  background-color: #393f81;
+  color: #fff;
+}
+
+/* Lien de mot de passe oublié */
+.small.text-muted {
+  color: #393f81;
+}
+
+/* Lien d'inscription */
+.small.text-muted a {
+  color: #393f81;
+}
+
+/* Autres liens */
+.small.text-muted:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Input */
+.form-outline {
+  position: relative;
+}
+
+.form-control-lg {
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  width: 100%;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-lg:focus {
+  border-color: #393f81;
+  box-shadow: 0 0 0 0.25rem rgba(57, 63, 129, 0.25);
+}
