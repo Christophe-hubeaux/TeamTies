@@ -1,64 +1,36 @@
-.section-sign-in {
-  background-image: linear-gradient(270deg, #844B85, #dd4c58);
-  background-size: 200% 200%;
-  animation: TransitioningBackground 10s ease infinite;
+.signin {
+  text-align: left;
+  margin: 24vh auto;
+  background-color: #844B85;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  width: 65vh;
 }
 
-@keyframes TransitioningBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.signin-btn {
+  background-color: white;
+  width: 240px;
+  opacity: 0.9;
+  margin-top: 35px;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
 }
 
-/* Titre du formulaire */
-.title-form {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #393f81;
+.signin-btn:hover {
+  background-color: white;
+  color: black;
+  opacity: 1;
 }
 
-/* Bouton de soumission */
-.btn-primary {
-  background-color: #393f81;
-  color: #fff;
+.signin-input {
+  border: none;
+  border-radius: 5px;
+  padding: 7px;
 }
 
-/* Lien de mot de passe oublié */
-.small.text-muted {
-  color: #393f81;
-}
-
-/* Lien d'inscription */
-.small.text-muted a {
-  color: #393f81;
-}
-
-/* Autres liens */
-.small.text-muted:not(:last-child) {
-  margin-right: 10px;
-}
-
-/* Input */
-.form-outline {
-  position: relative;
-}
-
-.form-control-lg {
-  padding: 1rem 1.5rem;
-  font-size: 1.25rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ced4da;
-  width: 100%;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control-lg:focus {
-  border-color: #393f81;
-  box-shadow: 0 0 0 0.25rem rgba(57, 63, 129, 0.25);
+.signin-title {
+  text-align: center;
 }
