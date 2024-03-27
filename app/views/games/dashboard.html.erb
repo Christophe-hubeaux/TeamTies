@@ -23,7 +23,7 @@
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary alive" type="button" data-action="mouseup->clipboard#copy mouseup->bounce#startBounce" data-bounce-target="button">Copier</button>
           </div>
-          <input type="text" value="http://www.parions.org/join_game/<%= @game.code %>" class="form-control bg-transparent border-0" placeholder="" aria-label="" aria-describedby="basic-addon1" data-clipboard-target="input" disabled>
+          <input type="text" value="<%= url_for(controller: 'games', action: 'join', code: @game.code, only_path: false) %>" class="form-control bg-transparent border-0" placeholder="" aria-label="" aria-describedby="basic-addon1" data-clipboard-target="input" disabled>
         </div>
         </div>
       </div>

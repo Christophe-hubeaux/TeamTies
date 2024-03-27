@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     member do
       get :dashboard
       get :ranking
+#       get :join
     end
   end
 
