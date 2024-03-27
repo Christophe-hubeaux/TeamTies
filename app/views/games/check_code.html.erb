@@ -2,10 +2,9 @@
 <div class="container">
 <div class="party">
     <h1>Rejoindre une partie</h1>
-    <%= form_with url: games_check_code_path, method: :get do |f| %>
-        <%= f.label :code, "Entrez le code du jeu :" %>
-        <%= f.text_field :code %>
-        <%= f.submit "Vérifier le code" %>
+    <%= form_with url: games_check_code_path, class: "check-code", method: :get do |f| %>
+        <%= f.text_field :code, placeholder: "Entrez le code du jeu" %>
+        <%= f.submit "Vérifier le  code", :class => "checkbtn" %>
     <% end %>
     </div>
 </div>
