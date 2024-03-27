@@ -3,6 +3,12 @@
     flex-direction: column;
     align-content: center;
     align-items: stretch;
+    margin-bottom: 50px;
+}
+
+.prono-banner {
+  background: linear-gradient(90deg, rgba(132, 75, 133, 0.2) 0%, rgba(221, 76, 88, 0.2) 100%);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .day-matchs {
@@ -26,7 +32,7 @@
 .match {
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .home-team,
@@ -62,4 +68,12 @@
 .home-team .team-name,
 .away-team .team-name {
   text-align: center;
+  margin-top: 10px;
+}
+
+.day-date {
+  margin: inherit;
+}
+.prono-title {
+  border-bottom: 2px solid #FE3A4A;
 }

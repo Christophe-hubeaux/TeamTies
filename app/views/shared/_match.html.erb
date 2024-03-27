@@ -10,13 +10,13 @@
         </div>
     </div>
     <div class="score">
-        <div class="text-center mb-2">
+        <div class="group text-center mb-2">
             Groupe <%= match.group %>
         </div>
         <div class="prono">
-            Mon prono
+            <div class="monprono">Mon prono :</div>
             <%# L'encodage de prono n'est possible que jusqu'à 10min avant le début du match %>
-            <% if ((match.date - Time.now) >= 70*60)  && !@dashboard %> 
+            <% if ((match.date - Time.now) >= 70*60)  && !@dashboard %>
               <div>
                 <%= render "shared/my-prono-form", match: match, prono: prono.nil? ? Pronostic.new : prono %>
               </div>
@@ -40,8 +40,8 @@
                 </div>
             <% else %>
                 <div class="result">
-                    <div>Score final</div>
-                    <%= match.home_team_result %> - <%= match.away_team_result %>
+                    <div>Score final :</div>
+                    <div class="final-result"><%= match.home_team_result %> - <%= match.away_team_result %></div>
                 </div>
             <% end %>
         </div>

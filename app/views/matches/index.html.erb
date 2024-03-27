@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page-title mt-5">
-        <h1>Mes pronos</h1>
+        <h1 class="prono-title">Mes pronos</h1>
     </div>
     <div class="filter-by-date">
     </div>
@@ -8,7 +8,7 @@
     <div class="matchs">
 
         <div class="date" id="14/06">
-            <h3>Vendredi 14 juin</h3>
+            <h3 class="day-date">Vendredi 14 juin</h3>
         </div>
         <div class="day-matchs">
             <% @matchs_2024_06_14.each do |match| %>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="date" id="15/06">
-            <h3>Samedi 15 juin</h3>
+            <h3 class="day-date">Samedi 15 juin</h3>
         </div>
         <div class="day-matchs">
             <% @matchs_2024_06_15.each do |match| %>
@@ -26,35 +26,34 @@
         </div>
 
         <div class="date" id="16/06">
-            <h3>Dimanche 16 juin</h3>
+            <h3 class="day-date">Dimanche 16 juin</h3>
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_16.each do |match| %>
                 <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>             
+                <%= render "shared/match", match: match, prono: prono %>
             <% end %>
         </div>
 
         <div class="date" id="17/06">
-            <h3>Lundi 17 juin</h3>
+            <h3 class="day-date">Lundi 17 juin</h3>
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_17.each do |match| %>
                 <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>             
+                <%= render "shared/match", match: match, prono: prono %>
             <% end %>
         </div>
 
         <div class="date" id="18/06">
-            <h3>Mardi 18 juin</h3>
+            <h3 class="day-date">Mardi 18 juin</h3>
         </div>
             <div class="day-matchs">
             <% @matchs_2024_06_18.each do |match| %>
                 <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>             
+                <%= render "shared/match", match: match, prono: prono %>
             <% end %>
         </div>
 
     </div>
 </div>
-
