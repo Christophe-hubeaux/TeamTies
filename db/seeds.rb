@@ -71,9 +71,8 @@ georgia = Team.create!(name: 'Géorgie', flag: 'https://flagdownload.com/wp-cont
 ukraine = Team.create(name: 'Ukraine', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Ukraine_Flat_Round-128x128.png')
 poland = Team.create!(name: 'Pologne', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Poland_Flat_Round-128x128.png')
 
-
-
 blueteam1 = Game.create!(name: 'Le Wagon - Batch 1598', code: 'A1B2C3')
+blueteam1_chat = Chat.create!(name: blueteam1.name, game: blueteam1)
 # redteam1 = Game.create!(name: 'Équipe rouge')
 
 dept1 = Department.create!(name: "Team Building @home", game: blueteam1)
