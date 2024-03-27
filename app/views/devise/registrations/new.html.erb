@@ -1,32 +1,31 @@
-<h2>Sign up</h2>
-<%= render "shared/cookies" %>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <h2 class="mt-5">Sign up</h2>
+  <%= render "shared/cookies" %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
 
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :department,
-                required: true %>
-    <%= f.input :pseudo,
-                required: true %>
-    <%= f.input :avatar, as: :file %>
-  </div>
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :pseudo,
+                  required: true %>
+      <%= f.input :avatar, as: :file %>
+    </div>
 
-  <div class="form-actions">
+    <div class="form-actions">
 
-      <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up" %>
 
-  </div>
-<% end %>
-
+    </div>
+  <% end %>
+</div>
 <%= render "devise/shared/links" %>
