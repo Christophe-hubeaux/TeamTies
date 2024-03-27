@@ -82,7 +82,7 @@ dept4 = Department.create!(name: "La récolte connectée", game: blueteam1)
 
 
 UsersGame.create!(user: user1, game: blueteam1, total_score: 15, department: dept1)
-UsersGame.create!(user: user2, game: blueteam1, total_score: 8, department: dept1)
+# UsersGame.create!(user: user2, game: blueteam1, total_score: 8, department: dept1)
 UsersGame.create!(user: user3, game: blueteam1, total_score: 22, department: dept2)
 UsersGame.create!(user: user4, game: blueteam1, total_score: 2, department: dept4)
 
@@ -100,10 +100,10 @@ match11 = Match.create!(group: 'F', stage: 'phase de groupes', tournament: 'UEFA
 match12 = Match.create!(group: 'F', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: portugal, away_team: czechia, date: DateTime.strptime('06/18/2024 21:00', '%m/%d/%Y %H:%M'))
 
 pronostic1 = Pronostic.create!(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: blueteam1, status: 'pending')
-pronostic1 = Pronostic.create!(match: match1, user: user2, home_team_prono: 1, away_team_prono: 2, game: blueteam1, status: 'pending')
+# pronostic1 = Pronostic.create!(match: match1, user: user2, home_team_prono: 1, away_team_prono: 2, game: blueteam1, status: 'pending')
 pronostic1 = Pronostic.create!(match: match1, user: user3, home_team_prono: 1, away_team_prono: 1, game: blueteam1, status: 'pending')
 pronostic1 = Pronostic.create!(match: match1, user: user4, home_team_prono: 4, away_team_prono: 0, game: blueteam1, status: 'pending')
 
-pronostic2 = Pronostic.create!(match: match1, user: user2, home_team_prono: 0, away_team_prono: 3, game: blueteam1, status: 'pending')
+# pronostic2 = Pronostic.create!(match: match1, user: user2, home_team_prono: 0, away_team_prono: 3, game: blueteam1, status: 'pending')
 pronostic3 = Pronostic.create!(match: match2, user: user1, home_team_prono: 4, away_team_prono: 1, game: blueteam1, status: 'pending')
-pronostic4 = Pronostic.create!(match: match2, user: user2, home_team_prono: 3, away_team_prono: 2, game: blueteam1, status: 'pending')
+# pronostic4 = Pronostic.create!(match: match2, user: user2, home_team_prono: 3, away_team_prono: 2, game: blueteam1, status: 'pending')

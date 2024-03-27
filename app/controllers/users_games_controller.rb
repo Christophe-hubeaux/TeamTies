@@ -12,6 +12,7 @@ class UsersGamesController < ApplicationController
     @user_game = UsersGame.new(department: Department.find_by(name: user_game_params[:department]))
     @user_game.game = @game
     @user_game.user = @user
+    @user_game.total_score = 0
 
     if @user_game.save
       redirect_to dashboard_game_path(@game)
