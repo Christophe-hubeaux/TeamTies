@@ -27,15 +27,24 @@
           <li class="nav-item">
             <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
           </li>
+          <li class="nav-item">
+          <% if @game.chat.nil? %>
+            <p></p>
+          <% else %>
+            <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
+               MESSAGERIE
+            <% end %>
+          <% end %>
+          </li>
           <% end %>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.avatar.attached? %>
-              <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>
-            <% else %>
-              <%= image_tag "1824147.svg", class: "avatar-large", alt: "avatar dropdown menu" %>
-            <% end %>
-          </a>
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>
+              <% else %>
+                <%= image_tag "1824147.svg", class: "avatar-large", alt: "avatar dropdown menu" %>
+              <% end %>
+            </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
