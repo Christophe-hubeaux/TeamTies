@@ -1,5 +1,5 @@
 .match {
-    width: 80%;
+    width: 90%;
     height: 175px;
     border-radius: 20px;
     background-color: #F5F5F5;
@@ -33,10 +33,33 @@
     height: 38px;
 }
 
-.result {
+.hour {
     text-align:center;
-    margin-top: 1em;
     background-color: white;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.dashboard-match {
+  margin: 50px;
+  width: 725px;
+}
+
+.dashboard-match-title {
+  text-align: left;
+  border-bottom: solid 2px #FE3A4A;
+  margin-top: 30px;
+}
+
+.dashboard-match .match {
+  width: 400px;
+  margin: 30px auto;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.result {
+    text-align:center;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 13px;
 }

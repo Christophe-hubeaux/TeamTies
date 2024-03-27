@@ -82,6 +82,7 @@
 .uefa-img {
 	max-width: 100%;
 	height: auto;
+  border-radius: 70px
 }
 
 .text-infos {
@@ -112,4 +113,12 @@
 
 .rules ol {
   list-style: none;
+}
+
+.rules ul {
+  list-style: none;
+}
+
+.rules .fa-solid {
+  margin-right: 10px;
 }
