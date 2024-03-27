@@ -3,7 +3,6 @@
 require 'image_processing/mini_magick'
 require 'mini_magick'
 require 'cloudinary'
-require 'byebug'
 
 module Users
   class RegistrationsController < Devise::RegistrationsController

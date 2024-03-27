@@ -1,4 +1,3 @@
-require "byebug"
 
 class GamesController < ApplicationController
   def new
