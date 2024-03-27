@@ -5,12 +5,12 @@ class Game < ApplicationRecord
   has_many :departments, dependent: :destroy
   has_one :chat
 
-  after_create :create_chat_associated_with_game
+  # after_create :create_chat_associated_with_game
 
-  private
+  # private
 
-  def create_chat_associated_with_game
-    Chat.create(name: "test1", game: self)
-  end
+  # def create_chat_associated_with_game
+  #   Chat.create(name: self.name, game: self)
+  # end
 
 end

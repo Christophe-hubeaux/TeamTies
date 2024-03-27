@@ -11,7 +11,7 @@ class GamesController < ApplicationController
     # @organisator = User.find(user: current_user)
     @game.code = SecureRandom.urlsafe_base64(10)
     if @game.save
-      @game.create_chat # Créer un chat associé au jeu
+      Chat.create(name: @game.name, game: @game) # Créer un chat associé au jeu
       session[:game_code] = @game.code # Stocker le code dans la session
       redirect_to edit_organisateur_game_path(@game), notice: 'La partie a été créée avec succès.'
     else
