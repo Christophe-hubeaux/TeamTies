@@ -3,6 +3,7 @@
     height: 175px;
     border-radius: 20px;
     background-color: #F5F5F5;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
     align-items: center;
@@ -14,7 +15,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+    // background: linear-gradient(90deg, rgba(132, 75, 133, 0.2) 0%, rgba(221, 76, 88, 0.2) 100%);
+    // box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .matchs {
@@ -38,6 +42,7 @@
     background-color: white;
     border-radius: 5px;
     font-size: 16px;
+    margin-top: 15px;
 }
 
 .dashboard-match {
@@ -54,12 +59,28 @@
 .dashboard-match .match {
   width: 400px;
   margin: 30px auto;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .result {
     text-align:center;
     background-color: white;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.final-result {
+  font-weight: 500;
+}
+
+.group {
+  color: #777777;
+  font-weight: 300;
+  font-size: 14px
+}
+
+.monprono {
+  margin-bottom: 5px;
 }
