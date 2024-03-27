@@ -2,6 +2,11 @@
     margin: 50px;
     width: 50%;
   }
+
+  .edit-container h1 {
+    margin-bottom: 1em;
+  }
+
 .edit-flex {
     display: flex;
     justify-content: space-between;
@@ -41,12 +46,16 @@
 }
 
 .redirect-btn {
+  background-color: #844B85;
+  /* width: 240px; */
+  opacity: 0.9;
+  /* margin-top: 5em; */
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
   text-decoration: none;
-  text-decoration: none;
-  background-color: green;
-  padding: 0.5em;
   color: white;
-  border-radius: 7px;
+  padding: 12px;
 }
 
 .redirect-btn:hover {
@@ -54,10 +63,8 @@
 }
 
 .info {
-  padding: 10px;
   margin-top: 1em;
-  background-color: #ffe8bd;
-  border-radius: 7px;
-  opacity: 60%;
   width: auto;
+  font-weight: bold;
+  color: #FE3A4A;
 }

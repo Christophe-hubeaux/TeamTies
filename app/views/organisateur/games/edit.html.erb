@@ -2,12 +2,14 @@
 <div class="edit-container">
     <div>
         <h1><%= @game.name %></h1>
-        <p><strong>Code : </strong><%= @game.code %></p>
-        <% if @game_departments.any? && !@users.include?(current_user)%>
-            <%= link_to "Rejoindre la partie", games_check_code_path, :class=>"redirect-btn" %>
+        <% if @game_departments.any? %>
+            <p><strong>Code : </strong><%= @game.code %></p>
+            <% if !@users.include?(current_user) %>
+                <%= link_to "Rejoindre la partie", games_check_code_path, :class=>"redirect-btn" %>
+            <% end %>
         <% else %>
             <div class="info">
-                Ajoute au moins une équipe afin de pouvoir rejoindre la partie
+                Il est nécessaire d'ajouter au moins une équipe pour rejoindre la partie
             </div>
         <% end %>
     </div>

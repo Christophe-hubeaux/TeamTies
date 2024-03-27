@@ -11,11 +11,13 @@
         <p><strong>Nom de la partie :</strong> <%= @game.name %></p>
         <p><strong>Code de la partie :</strong> <%= @game.code %></p>
         </div>
+        <div class="buttons-flex">
+            <%= button_to "Editer la partie", edit_organisateur_game_path(@game), class: "btn btn-share" %>
+            <button class="btn btn-share" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Partager cette partie
+            </button>
 
-        <p class="share-link">
-        <button class="btn btn-share" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Partager cette partie
-        </button>
+        </div>
       </p>
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
