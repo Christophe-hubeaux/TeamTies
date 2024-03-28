@@ -82,9 +82,10 @@
 }
 
 .btn-share:hover {
-  background-color: white;
-  color: black;
-  opacity: 1;
+  background: linear-gradient(to bottom right, #844B85, #DD4C58);
+  color: white;
+  border-radius: 25px;
+  border: none;
 }
 
 .container p {
@@ -98,7 +99,7 @@
 
 .btn-test {
   /* Dégradé de couleur */
-  background: radial-gradient(137.75% 103.42% at 90.35% 97.6%, #DD4C58 3.6%, #844B85 100%);
+  background: linear-gradient(to bottom right, #DD4C58, #844B85);
   /* Autres styles de mise en forme */
   color: white;
   border: none;
@@ -106,14 +107,15 @@
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
+  border-radius: 25px;
   cursor: pointer;
   /* Ajoutez d'autres styles selon vos besoins */
 }
 
 /* Style pour le bouton au survol */
 .btn-test:hover {
-  opacity: 80%;
-  color: white; 
+  background: linear-gradient(to top left, #DD4C58, #844B85);
+  color: white;
   /* Ajoutez d'autres styles au survol */
 }
 
@@ -123,4 +125,12 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   transform: translateY(1px);
   /* Ajoutez d'autres styles pour l'état pressé */
+}
+
+.buttons-flex .fa-regular {
+  padding-right: 5px;
+}
+
+.buttons-flex .fa-solid {
+  padding-right: 5px;
 }
