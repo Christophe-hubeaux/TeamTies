@@ -1,3 +1,16 @@
+
+.filter-by-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  position: sticky;
+  top: 0; /* Adjust as needed */
+  background-color: white; /* Just for visibility */
+  padding: 20px;
+  align-items: center;
+}
 .matchs {
     display: flex;
     flex-direction: column;
@@ -73,6 +86,7 @@
 
 .day-date {
   margin: inherit;
+  margin-top: 3em;
 }
 .prono-title {
   border-bottom: 2px solid #FE3A4A;
