@@ -1,20 +1,19 @@
 <div class="banner">
     <div class="container">
       <%= render "shared/popup" %>
-        <h1>Mon dashboard </h1>
+        <h1>Dashboard </h1>
         <div class="hello-flex">
         <h2>👋🏻 </h2> <p>Bonjour <%= current_user.pseudo %> ! </p>
         </div>
-        <p>Voici tes informations de jeu :</p>
         <div class="infos-flex">
-        <p><strong>Équipe : </strong><%= @department.name %></p>
-        <p><strong>Nom de la partie :</strong> <%= @game.name %></p>
-        <p><strong>Code de la partie :</strong> <%= @game.code %></p>
+        <p><strong>Équipe </strong><%= @department.name %></p>
+        <p><strong>Partie </strong> <%= @game.name %></p>
+        <p><strong>Code </strong> <%= @game.code %></p>
         </div>
         <div class="buttons-flex">
             <%= link_to "Editer la partie", edit_organisateur_game_path(@game), class: "btn btn-share" %>
             <button class="btn btn-share" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Partager cette partie
+              <i class="fa-solid fa-arrow-up-from-bracket"></i>  Partager la partie
             </button>
 
         </div>
@@ -31,7 +30,7 @@
       </div>
 
         <div class="performance-container">
-        <p><strong> Performances sur les 7 derniers jours : </strong></p>
+        <p><strong> Performances sur les 7 derniers jours </strong></p>
           <div class="flex-perf">
           <div class="perf-category">
             <div class="perf-icon"><%= image_tag "v242_54.png", class: "avatar" %></div>
