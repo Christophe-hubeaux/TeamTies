@@ -6,9 +6,9 @@ import "bootstrap"
 import "@rails/actioncable"
 
 import { Application } from "@hotwired/stimulus"
-import ClipboardController from "controllers/clipboard_controller"
-import BounceController from "controllers/bounce_controller"
+// import ClipboardController from "controllers/clipboard_controller"
+// import BounceController from "controllers/bounce_controller"
 
 const application = Application.start()
-application.register("clipboard", ClipboardController)
-application.register("bounce", BounceController)
+// application.register("clipboard", ClipboardController)
+// application.register("bounce", BounceController)
