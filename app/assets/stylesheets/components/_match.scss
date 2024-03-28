@@ -32,9 +32,15 @@
     justify-content: space-between;
 }
 
-.team-prono {
+.team-prono.form-control {
     border-style: double;
     height: 38px;
+    width: 2.4em;
+    height: 2.7em;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 9px
 }
 
 .hour {
