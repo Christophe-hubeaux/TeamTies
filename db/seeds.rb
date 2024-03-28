@@ -152,9 +152,9 @@ UsersGame.create!(user: user11, game: blueteam1, total_score: 22, department: de
 UsersGame.create!(user: user12, game: blueteam1, total_score: 21, department: dept6)
 
 match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, home_team_result: 2, away_team_result: 1, date: DateTime.strptime('06/14/2024 18:00', '%m/%d/%Y %H:%M'))
-match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: DateTime.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
-match3 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: spain, away_team: croatia, date: DateTime.strptime('06/15/2024 18:00', '%m/%d/%Y %H:%M'))
-match4 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: italy, away_team: albania, date: DateTime.strptime('06/15/2024 21:00', '%m/%d/%Y %H:%M'))
+match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, home_team_result: 3, away_team_result: 3, date: DateTime.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
+match3 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: spain, away_team: croatia, home_team_result: 3, away_team_result: 1, date: DateTime.strptime('06/15/2024 18:00', '%m/%d/%Y %H:%M'))
+match4 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: italy, away_team: albania, home_team_result: 0, away_team_result: 3, date: DateTime.strptime('06/15/2024 21:00', '%m/%d/%Y %H:%M'))
 match5 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: poland, away_team: netherlands, date: DateTime.strptime('06/16/2024 15:00', '%m/%d/%Y %H:%M'))
 match6 = Match.create!(group: 'C', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: slovenia, away_team: denmark, date: DateTime.strptime('06/16/2024 18:00', '%m/%d/%Y %H:%M' ))
 match7 = Match.create!(group: 'C', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: serbia, away_team: england, date: DateTime.strptime('06/16/2024 21:00', '%m/%d/%Y %H:%M'))
@@ -173,12 +173,10 @@ match19 = Match.create!(group: 'E', stage: 'phase de groupes', tournament: 'UEFA
 match20 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: poland, away_team: austria, date: DateTime.strptime('06/21/2024 18:00', '%m/%d/%Y %H:%M'))
 match21 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: netherlands, away_team: france, date: DateTime.strptime('06/21/2024 21:00', '%m/%d/%Y %H:%M'))
 
-
 pronostic1 = Pronostic.create!(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: blueteam1, status: 'pending')
 # pronostic1 = Pronostic.create!(match: match1, user: user2, home_team_prono: 1, away_team_prono: 2, game: blueteam1, status: 'pending')
 pronostic1 = Pronostic.create!(match: match1, user: user3, home_team_prono: 1, away_team_prono: 1, game: blueteam1, status: 'pending')
 pronostic1 = Pronostic.create!(match: match1, user: user4, home_team_prono: 4, away_team_prono: 0, game: blueteam1, status: 'pending')
-
 # pronostic2 = Pronostic.create!(match: match1, user: user2, home_team_prono: 0, away_team_prono: 3, game: blueteam1, status: 'pending')
 pronostic3 = Pronostic.create!(match: match2, user: user1, home_team_prono: 4, away_team_prono: 1, game: blueteam1, status: 'pending')
 # pronostic4 = Pronostic.create!(match: match2, user: user2, home_team_prono: 3, away_team_prono: 2, game: blueteam1, status: 'pending')

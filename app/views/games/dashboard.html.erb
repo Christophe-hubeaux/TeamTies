@@ -58,7 +58,7 @@
         <%= render "shared/ranking" %>
         <% if @next_three_matches %>
           <div class="dashboard-match">
-          <h2 class="dashboard-match-title"=>PROCHAINS MATCHS</h2>
+          <h2 class="dashboard-match-title">DERNIERS MATCHS</h2>
           <% @next_three_matches.each do |match, prono| %>
             <%= render "shared/match", match: match, prono: prono %>
           <% end %></div>
