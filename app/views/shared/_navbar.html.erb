@@ -28,9 +28,9 @@
             <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
           </li>
           <li class="nav-item">
-          <% if @game.chat.nil? %>
-            <p></p>
-          <% else %>
+            <% if @game.chat.nil? %>
+              <p></p>
+            <% else %>
             <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
                <i class="fa-regular fa-comment-dots"></i> CHAT
             <% end %>
