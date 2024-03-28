@@ -32,12 +32,14 @@ class GamesController < ApplicationController
 
     @dashboard_individual_rankings = UsersGame.joins(:user, :game, :department)
                                               .select('games.name, departments.name as team, users.pseudo, SUM(users_games.total_score) as total_score')
-                                              .group('games.name, users.id, team', )
+                                              .where('games.id = ?', @game)
+                                              .group('games.name, users.id, team' )
                                               .order('total_score DESC')
                                               .limit(3)
 
-    @dashboard_department_rankings = UsersGame.joins(:user, :department)
+    @dashboard_department_rankings = UsersGame.joins(:user, :game, :department)
                                          .select('departments.name as team, AVG(users_games.total_score) as average_score')
+                                         .where('games.id = ?', @game)
                                          .group('team')
                                          .order('average_score DESC')
                                          .limit(3)
