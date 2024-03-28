@@ -13,7 +13,9 @@ class UsersGamesController < ApplicationController
     @user_game.game = @game
     @user_game.user = @user
     @user_game.total_score = 0
-
+    unless UsersGame.where(game: @game).any?
+      @user_game.owner = true
+    end
     if @user_game.save
       redirect_to dashboard_game_path(@game)
     else 
