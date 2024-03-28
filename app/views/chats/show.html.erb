@@ -23,6 +23,8 @@
       placeholder: "Message ##{@chat.name}",
       wrapper_html: { class: "flex-grow-1" }
     %>
-    <%= f.submit "Send", class: "btn-chat" %>
+    <%= button_tag type: 'submit', id: "btn-chat" do %>
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+      <% end %>
   <% end %>
 </div>

@@ -22,6 +22,7 @@
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+    margin: inherit;
 
     .form-group {
       margin-bottom: 0;
@@ -29,16 +30,17 @@
   }
 
   .form-control.text.required {
-    border-radius: 40px;
+    border-radius: 25px;
     padding: 15px 30px;
-    height: 55px;
   }
 
-  .btn-chat {
-    background-color: #844B85;
+  #btn-chat {
+    background: linear-gradient(to bottom right, #844B85, #DD4C58);
     border-radius: 18px;
     border: none;
     margin: 10px;
     color: white;
+    width: 70px;
+    height: 60px
   }
 }
