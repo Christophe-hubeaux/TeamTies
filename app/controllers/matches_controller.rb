@@ -12,5 +12,6 @@ class MatchesController < ApplicationController
         @matchs_2024_06_18 = Match.where("DATE(date) = ?", Date.parse('2024-06-18'))
         @matchs_2024_06_19 = Match.where("DATE(date) = ?", Date.parse('2024-06-19'))
         @matchs_2024_06_20 = Match.where("DATE(date) = ?", Date.parse('2024-06-20'))
+        @matchs_2024_06_21 = Match.where("DATE(date) = ?", Date.parse('2024-06-21'))
     end
 end
