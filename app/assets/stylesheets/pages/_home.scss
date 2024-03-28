@@ -48,8 +48,8 @@
 
 .p-ban a {
   background-color: white;
-  width: 240px;
-  opacity: 0.85;
+  width: 265px;
+  opacity: 1;
   margin-top: 35px;
   padding: 10px;
   border-radius: 25px;
@@ -57,9 +57,19 @@
   font-size: 18px;
 }
 
+.p-ban .fa-regular {
+  padding-right: 5px;
+}
+
+.p-ban .fa-solid {
+  padding-right: 5px;
+}
+
 .p-ban .btn:hover {
-  background-color: white;
-  opacity: 1;
+  background: linear-gradient(to bottom right, #844B85, #DD4C58);
+  color: white;
+  border-radius: 25px;
+  border: none;
 }
 
 #second-word {

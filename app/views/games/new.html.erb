@@ -3,7 +3,9 @@
     <h2>Créer une nouvelle partie</h2>
     <%= simple_form_for @game, local: true do |f| %>
       <%= f.text_field :name, :placeholder => 'Nom de la partie' %>
-      <%= f.button :submit, 'Créer une partie' %>
+      <%= button_tag type: 'submit', id: "newgame" do %>
+        <i class="fa-regular fa-square-plus" aria-hidden="true"></i> Créer la partie
+      <% end %>
     <% end %>
   </div>
 </div>

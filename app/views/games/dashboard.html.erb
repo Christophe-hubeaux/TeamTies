@@ -12,7 +12,9 @@
         </div>
         <div class="buttons-flex">
             <% if @owner == true %>
-              <%= link_to "Editer la partie", edit_organisateur_game_path(@game), class: "btn btn-test mb-2" %>
+              <%= link_to(edit_organisateur_game_path(@game), class: "btn btn-test mb-2") do %>
+              <i class="fa-regular fa-pen-to-square"></i> Editer la partie
+              <% end %>
             <% end %>
             <button class="btn btn-test" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               <i class="fa-solid fa-arrow-up-from-bracket"></i> Partager la partie

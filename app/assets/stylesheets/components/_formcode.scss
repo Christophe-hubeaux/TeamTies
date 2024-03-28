@@ -1,11 +1,18 @@
 .party {
   text-align: center;
   margin: 24vh auto;
-  background-color: #844B85;
+  background-color: #dbc8db;
   padding: 20px;
   border-radius: 20px;
   color: white;
   width: 65vh;
+}
+
+.party h1 {
+  color: black;
+}
+.party h2 {
+  color: black;
 }
 
 #new_users_game {
@@ -22,8 +29,8 @@
 
 #new_users_game .btn {
   background-color: white;
-  width: 240px;
-  opacity: 0.9;
+  width: 265px;
+  opacity: 1;
   margin-top: 35px;
   padding: 10px;
   border-radius: 25px;
@@ -32,9 +39,10 @@
 }
 
 #new_users_game .btn:hover {
-  background-color: white;
-  color: black;
-  opacity: 1;
+  background: linear-gradient(to bottom right, #844B85, #DD4C58);
+  color: white;
+  border-radius: 25px;
+  border: none;
 }
 
 #users_game_department {

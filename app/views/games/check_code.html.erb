@@ -4,7 +4,9 @@
     <h1>Rejoindre une partie</h1>
     <%= form_with url: games_check_code_path, class: "check-code", method: :get do |f| %>
         <%= f.text_field :code, placeholder: "Entrez le code du jeu" %>
-        <%= f.submit "Vérifier le  code", :class => "checkbtn" %>
+        <%= button_tag type: 'submit', id: "checkbtn" do %>
+          <i class="fa-regular fa-square-check" aria-hidden="true"></i> Vérifier le code
+        <% end %>
     <% end %>
     </div>
 </div>

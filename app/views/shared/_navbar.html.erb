@@ -31,26 +31,23 @@
             <% if @game.chat.nil? %>
               <p></p>
             <% else %>
-            <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
-               <i class="fa-regular fa-comment-dots"></i> CHAT
-            <% end %>
-          <% end %>
-          </li>
-          <% end %>
-          <li class="nav-item dropdown">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if current_user.avatar.attached? %>
-                <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>
-              <% else %>
-                <%= image_tag "1824147.svg", class: "avatar-large", alt: "avatar dropdown menu" %>
+              <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
+                 <i class="fa-regular fa-comment-dots"></i> CHAT
               <% end %>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
-              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <% end %>
           </li>
+          <% else %>
+          <!-- Afficher les liens vers les autres onglets même si @game.chat est nil -->
+          <li class="nav-item">
+            <%= link_to "DASHBOARD", root_path, class: "nav-link navbar-font" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "PRONOS", root_path, class: "nav-link navbar-font" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "CLASSEMENT", root_path, class: "nav-link navbar-font" %>
+          </li>
+          <% end %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
