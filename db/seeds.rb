@@ -46,6 +46,62 @@ user4 = User.create!(
   pseudo: 'Gabin',
 )
 
+user5 = User.create!(
+  email: 'user5@example.com',
+  password: '123456', # Must be at least 6 characters
+  password_confirmation: '123456',
+  pseudo: 'Alex',
+)
+
+user6 = User.create!(
+  email: 'user6@example.com',
+  password: '123456', # Must be at least 6 characters
+  password_confirmation: '123456',
+  pseudo: 'Emily',
+)
+
+user7 = User.create!(
+  email: 'user7@example.com',
+  password: '123456', # Must be at least 6 characters
+  password_confirmation: '123456',
+  pseudo: 'Max',
+)
+
+user8 = User.create!(
+  email: 'user8@example.com',
+  password: '123456', # Must be at least 6 characters
+  password_confirmation: '123456',
+  pseudo: 'Sophie',
+)
+
+user9 = User.create!(
+  email: 'user9@example.com',
+  password: '123456',
+  password_confirmation: '123456',
+  pseudo: 'Lucas',
+)
+
+user10 = User.create!(
+  email: 'user10@example.com',
+  password: '123456',
+  password_confirmation: '123456',
+  pseudo: 'Emma',
+)
+
+user11 = User.create!(
+  email: 'user11@example.com',
+  password: '123456',
+  password_confirmation: '123456',
+  pseudo: 'Nathan',
+)
+
+user12 = User.create!(
+  email: 'user12@example.com',
+  password: '123456',
+  password_confirmation: '123456',
+  pseudo: 'Léa',
+)
+
 albania = Team.create!(name: 'Albanie', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Albania_Flat_Round-128x128.png')
 austria = Team.create!(name: 'Autriche', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Austria_Flat_Round-1-128x128.png')
 belgium = Team.create!(name: 'Belgique', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Belgium_Flat_Round-128x128.png')
@@ -71,20 +127,29 @@ georgia = Team.create!(name: 'Géorgie', flag: 'https://flagdownload.com/wp-cont
 ukraine = Team.create(name: 'Ukraine', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Ukraine_Flat_Round-128x128.png')
 poland = Team.create!(name: 'Pologne', flag: 'https://flagdownload.com/wp-content/uploads/Flag_of_Poland_Flat_Round-128x128.png')
 
-blueteam1 = Game.create!(name: 'Le Wagon - Batch 1598', code: 'A1B2C3')
+blueteam1 = Game.create!(name: 'TechSolution .Inc', code: 'A1B2C3')
 blueteam1_chat = Chat.create!(name: blueteam1.name, game: blueteam1)
 # redteam1 = Game.create!(name: 'Équipe rouge')
 
-dept1 = Department.create!(name: "Team Building @home", game: blueteam1)
-dept2 = Department.create!(name: "Cury AI", game: blueteam1)
-dept3 = Department.create!(name: "GrownUp Hack", game: blueteam1)
-dept4 = Department.create!(name: "La récolte connectée", game: blueteam1)
-
+dept1 = Department.create!(name: "IT", game: blueteam1)
+dept2 = Department.create!(name: "Compta", game: blueteam1)
+dept3 = Department.create!(name: "RH", game: blueteam1)
+dept4 = Department.create!(name: "R&D", game: blueteam1)
+dept5 = Department.create!(name: "Marketing", game: blueteam1)
+dept6 = Department.create!(name: "Ventes", game: blueteam1)
 
 UsersGame.create!(user: user1, game: blueteam1, total_score: 15, department: dept1)
 # UsersGame.create!(user: user2, game: blueteam1, total_score: 8, department: dept1)
 UsersGame.create!(user: user3, game: blueteam1, total_score: 22, department: dept2)
-UsersGame.create!(user: user4, game: blueteam1, total_score: 2, department: dept4)
+UsersGame.create!(user: user4, game: blueteam1, total_score: 21, department: dept4)
+UsersGame.create!(user: user5, game: blueteam1, total_score: 18, department: dept5)
+UsersGame.create!(user: user6, game: blueteam1, total_score: 15, department: dept3)
+UsersGame.create!(user: user7, game: blueteam1, total_score: 24, department: dept6)
+UsersGame.create!(user: user8, game: blueteam1, total_score: 27, department: dept4)
+UsersGame.create!(user: user9, game: blueteam1, total_score: 15, department: dept1)
+UsersGame.create!(user: user10, game: blueteam1, total_score: 8, department: dept3)
+UsersGame.create!(user: user11, game: blueteam1, total_score: 22, department: dept2)
+UsersGame.create!(user: user12, game: blueteam1, total_score: 21, department: dept6)
 
 match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, home_team_result: 2, away_team_result: 1, date: DateTime.strptime('06/14/2024 18:00', '%m/%d/%Y %H:%M'))
 match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: DateTime.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
@@ -98,6 +163,16 @@ match9 = Match.create!(group: 'E', stage: 'phase de groupes', tournament: 'UEFA 
 match10 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: austria, away_team: france, date: DateTime.strptime('06/17/2024 21:00', '%m/%d/%Y %H:%M'))
 match11 = Match.create!(group: 'F', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: turkey, away_team: georgia, date: DateTime.strptime('06/18/2024 18:00', '%m/%d/%Y %H:%M'))
 match12 = Match.create!(group: 'F', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: portugal, away_team: czechia, date: DateTime.strptime('06/18/2024 21:00', '%m/%d/%Y %H:%M'))
+match13 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: croatia, away_team: albania, date: DateTime.strptime('06/19/2024 15:00', '%m/%d/%Y %H:%M'))
+match14 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: hungary, date: DateTime.strptime('06/19/2024 18:00', '%m/%d/%Y %H:%M'))
+match15 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: scotland, away_team: switzerland, date: DateTime.strptime('06/19/2024 21:00', '%m/%d/%Y %H:%M'))
+match16 = Match.create!(group: 'C', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: slovenia, away_team: serbia, date: DateTime.strptime('06/20/2024 15:00', '%m/%d/%Y %H:%M'))
+match17 = Match.create!(group: 'C', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: denmark, away_team: england, date: DateTime.strptime('06/20/2024 18:00', '%m/%d/%Y %H:%M'))
+match18 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: spain, away_team: italy, date: DateTime.strptime('06/20/2024 21:00', '%m/%d/%Y %H:%M'))
+match19 = Match.create!(group: 'E', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: slovakia, away_team: ukraine, date: DateTime.strptime('06/21/2024 15:00', '%m/%d/%Y %H:%M'))
+match20 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: poland, away_team: austria, date: DateTime.strptime('06/21/2024 18:00', '%m/%d/%Y %H:%M'))
+match21 = Match.create!(group: 'D', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: netherlands, away_team: france, date: DateTime.strptime('06/21/2024 21:00', '%m/%d/%Y %H:%M'))
+
 
 pronostic1 = Pronostic.create!(match: match1, user: user1, home_team_prono: 2, away_team_prono: 1, game: blueteam1, status: 'pending')
 # pronostic1 = Pronostic.create!(match: match1, user: user2, home_team_prono: 1, away_team_prono: 2, game: blueteam1, status: 'pending')

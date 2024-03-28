@@ -55,5 +55,35 @@
             <% end %>
         </div>
 
+                <div class="date" id="19/06">
+            <h3 class="day-date">Mercredi 19 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_19.each do |match| %>
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>
+            <% end %>
+        </div>
+
+                <div class="date" id="20/06">
+            <h3 class="day-date">Mercredi 20 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_20.each do |match| %>
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>
+            <% end %>
+        </div>
+
+                <div class="date" id="21/06">
+            <h3 class="day-date">Jeudi 21 juin</h3>
+        </div>
+            <div class="day-matchs">
+            <% @matchs_2024_06_21.each do |match| %>
+                <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                <%= render "shared/match", match: match, prono: prono %>
+            <% end %>
+
+        </div>
     </div>
 </div>
