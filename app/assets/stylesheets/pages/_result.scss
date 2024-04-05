@@ -1,0 +1,17 @@
+.match-result {
+    width: 40%;
+    height: 175px;
+    border-radius: 20px;
+    background-color: #F5F5F5;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    align-items: center;
+    margin: auto;
+    justify-items: center;
+    margin-top: 2em;
+}
+
+.result {
+    display: flex;
+}

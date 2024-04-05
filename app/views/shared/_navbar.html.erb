@@ -59,6 +59,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
+              <%= link_to "Admin",  admin_matches_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
