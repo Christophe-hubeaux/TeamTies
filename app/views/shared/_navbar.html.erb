@@ -58,7 +58,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
+              <%= link_to "Changer de partie", change_game_path, class: "dropdown-item" %>
               <% if current_user.admin? %>
               <%= link_to "Admin",  admin_matches_path, class: "dropdown-item" %>
               <% end %>

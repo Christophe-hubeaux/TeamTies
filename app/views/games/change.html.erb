@@ -1,0 +1,10 @@
+<%# path : join_game_path(:code) %>
+<div class="container">
+<div class="party">
+    <h1>Choisir une partie</h1>
+    <%= form_with url: change_game_path, class: "check-code", method: :get do |form| %>
+      <%= form.select :game, options_for_select(@games_names, prompt: "Choisis une partie"), {}, { class: "form-control", label: false } %>
+      <%= form.submit 'Valider', class: "signin-btn mt-3" %>
+    <% end %>
+    </div>
+</div>
