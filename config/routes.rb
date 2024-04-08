@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     end
   end
 
-  
+  namespace :admin do 
+    resources :matches, only: [:index, :edit, :update]
+  end
 
   namespace :organisateur do
     resources :games, only: [:edit] do # /organisateur/games/edit

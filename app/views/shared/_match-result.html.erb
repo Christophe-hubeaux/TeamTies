@@ -1,0 +1,35 @@
+<% if match.home_team_result.nil? %>
+<div class="match-result">
+    <div class="home-team">
+        <div class="flag flag-left">
+            <img src="<%= match.home_team.flag %>" alt="<%= match.home_team.name %> Flag">
+        </div>
+        <div class="team-name">
+            <%= match.home_team.name %>
+        </div>
+        <div class="shape">
+        </div>
+    </div>
+    <div class="score">
+        <div class="group text-center mb-2">
+            <%= match.date.strftime("%d-%m") %>
+        </div>
+        <div class="group text-center mb-2">
+            Groupe <%= match.group %>
+        </div>
+        <div class="prono">
+                <%= render "shared/match-result-form", match: match%>
+        </div>
+    </div>
+    <div class="away-team">
+        <div class="flag flag-right">
+            <img src="<%= match.away_team.flag %>" alt="<%= match.away_team.name %> Flag">
+        </div>
+        <div class="team-name">
+            <%= match.away_team.name %>
+        </div>
+        <div class="shape">
+        </div>
+    </div>
+</div>
+<% end  %>

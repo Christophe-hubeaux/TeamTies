@@ -1,0 +1,12 @@
+<div>
+    <%= simple_form_for(match, url: admin_match_path(match)) do |f| %>
+        <div class="input-prono">
+            <%= f.input :home_team_result, :input_html => { :type => 'text', :inputmode => 'numeric' }, class: "result", label: false %>
+            <%= f.input :away_team_result, :input_html => { :type => 'text', :inputmode => 'numeric' }, class: "result", label: false %>
+        </div>
+        <div class="validation">
+            <%= f.button :submit, 'Valider' %>
+        </div>
+    <% end %>
+</div>
+
