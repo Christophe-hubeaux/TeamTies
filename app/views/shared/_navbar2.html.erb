@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <a class="navbar-brand teamties" href="#">TEAMTIES</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
+            <% if user_signed_in? %>
+
+                <li class="nav-item active">
+                    <%= link_to "ACCUEIL", root_path, class: "nav-link navbar-font" %>
+                </li>
+
+                <% if !@game.nil? %>
+
+                    <li class="nav-item">
+                        <%= link_to "DASHBOARD", dashboard_game_path(@game), class: "nav-link navbar-font" %>
+                    </li>
+
+                    <li class="nav-item">
+                        <%= link_to "PRONOS", game_matches_path(@game), class: "nav-link navbar-font" %>
+                    </li>
+
+                    <li class="nav-item">
+                        <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Changer de partie
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Partie 1</a></li>
+                            <li><a class="dropdown-item" href="#">Partie 2</a></li>
+                        </ul>
+                    </li>
+
+                <% end %>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <% if current_user.avatar.attached? %>
+                        <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>
+                    <% else %>
+                        <%= image_tag "1824147.svg", class: "avatar-large", alt: "avatar dropdown menu" %>
+                    <% end %>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
+                    <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
+                    <% if current_user.admin? %>
+                    <%= link_to "Admin",  admin_matches_path, class: "dropdown-item" %>
+                    <% end %>
+                    <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                    </div>
+                </li>
+
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                </li>
+            <% end %>
+        </ul>
+        
+      </div>
+    </div>
+</nav>
