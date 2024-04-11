@@ -30,6 +30,12 @@
                         <%= link_to "CLASSEMENT", ranking_game_path(@game), class: "nav-link navbar-font" %>
                     </li>
 
+                    <li class="nav-item">
+                        <%= link_to chat_path(@game.chat), class: "nav-link navbar-font" do %>
+                        <i class="fa-regular fa-comment-dots"></i> CHAT
+                        <% end %>
+                    </li>
+
                     <% if (current_user.users_games.count > 1) %>
 
                         <li class="nav-item dropdown">
@@ -37,8 +43,12 @@
                             MES PARTIES
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Partie 1</a></li>
-                                <li><a class="dropdown-item" href="#">Partie 2</a></li>
+                                <% current_user.games.each do |game|  %>
+                                 <li><%= link_to dashboard_game_path(game), class: "dropdown-item" do %>
+                                    <%= game.name %>
+                                    <% end %>
+                                 </li>
+                                <% end  %>
                             </ul>
                         </li>
 
@@ -57,7 +67,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Changer de partie", "#", class: "dropdown-item" %>
                 <% if current_user.admin? %>
                 <%= link_to "Admin",  admin_matches_path, class: "dropdown-item" %>
                 <% end %>
