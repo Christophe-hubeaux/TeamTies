@@ -31,11 +31,19 @@
     grid-gap: 1.2rem;
 }
 
-// .match {
-//     border: 2px solid #e7e7e7;
-//     border-radius: 4px;
-//     padding: .5rem;
-// }
+@media screen and (max-width: 1279px) {
+  /* Appliquer ces styles lorsque la largeur de l'écran est inférieure ou égale à 768px */
+  .day-matchs {
+      grid-template-columns: repeat(2, 1fr); /* 2 colonnes au lieu de 3 */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Appliquer ces styles lorsque la largeur de l'écran est inférieure ou égale à 480px */
+  .day-matchs {
+      grid-template-columns: 1fr; /* 1 colonne */
+  }
+}
 
 .flag img {
   max-width: 100%;
