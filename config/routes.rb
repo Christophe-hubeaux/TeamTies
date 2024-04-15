@@ -36,5 +36,7 @@ Rails.application.routes.draw do
   end
 
   get 'join_game/:code', to: 'games#join', as: :join_game
-  get '/games/check_code', to: 'games#check_code', as: 'games_check_code' 
+  get '/games/check_code', to: 'games#check_code', as: 'games_check_code'
+  get '/games/change_game', to: 'games#change', as: :change_game
+
 end

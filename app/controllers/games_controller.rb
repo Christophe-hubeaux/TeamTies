@@ -88,6 +88,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def change
+    @usersgames = UsersGame.where(user_id: current_user)
+    @games = @usersgames.map(&:game_id).uniq
+    @games_names = Game.where(id: @games).pluck(:name)
+  end
+
   private
 
   def teamranking

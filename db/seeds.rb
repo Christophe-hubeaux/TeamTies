@@ -23,6 +23,7 @@ user1 = User.create!(
   password: '123456?',
   password_confirmation: '123456?',
   pseudo: 'Sylvain',
+  admin: true
 )
 
 user2 = User.create!(
@@ -30,6 +31,7 @@ user2 = User.create!(
   password: 'test01', # 6 caractères minimum
   password_confirmation: 'test01',
   pseudo: 'Chris',
+  admin: true
 )
 
 user3 = User.create!(
@@ -37,6 +39,7 @@ user3 = User.create!(
   password: '123456', # 6 caractères minimum
   password_confirmation: '123456',
   pseudo: 'Mélissa',
+  admin: true
 )
 
 user4 = User.create!(
@@ -44,6 +47,7 @@ user4 = User.create!(
   password: '123456', # 6 caractères minimum
   password_confirmation: '123456',
   pseudo: 'Gabin',
+  admin: true
 )
 
 user5 = User.create!(
