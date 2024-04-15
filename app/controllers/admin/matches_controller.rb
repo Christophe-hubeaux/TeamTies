@@ -8,6 +8,8 @@ class Admin::MatchesController < ApplicationController
         @match = Match.find(params[:id])
         if @match.update(match_params)
           redirect_to :admin_matches, notice: 'Match mis à jour avec succès.'
+          increment = IncrementTotalScore.new(@match)
+          increment.updatePronoStatus
         else
           render :edit
         end

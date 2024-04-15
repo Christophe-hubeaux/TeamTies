@@ -13,6 +13,11 @@ class MatchesController < ApplicationController
         @matchs_2024_06_19 = Match.where("DATE(date) = ?", Date.parse('2024-06-19'))
         @matchs_2024_06_20 = Match.where("DATE(date) = ?", Date.parse('2024-06-20'))
         @matchs_2024_06_21 = Match.where("DATE(date) = ?", Date.parse('2024-06-21'))
-        @matchs_2024_06_22 = Match.where("DATE(date) = ?", Date.parse('2024-06-21'))
+        @matchs_2024_06_22 = Match.where("DATE(date) = ?", Date.parse('2024-06-22'))
+        @matchs_2024_06_23 = Match.where("DATE(date) = ?", Date.parse('2024-06-23'))
+        @matchs_2024_06_24 = Match.where("DATE(date) = ?", Date.parse('2024-06-24'))
+        @matchs_2024_06_25 = Match.where("DATE(date) = ?", Date.parse('2024-06-25'))
+        @matchs_2024_06_26 = Match.where("DATE(date) = ?", Date.parse('2024-06-26'))
+
     end
 end

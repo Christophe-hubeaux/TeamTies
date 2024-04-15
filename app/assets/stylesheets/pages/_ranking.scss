@@ -8,14 +8,23 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 1439px) {
+  /* Mettre les éléments l'un en dessous de l'autre */
+  .ranking-flex {
+    flex-direction: column; /* Mettre les éléments en colonne */
+  }
+}
+
 .title-cat-left {
   text-align: right;
   border-bottom: solid 2px #FE3A4A;
+  margin-top: 2em;
 }
 
 .title-cat-right {
   text-align: left;
   border-bottom: solid 2px #FE3A4A;
+  margin-top: 2em;
 }
 
 .card-table table {
