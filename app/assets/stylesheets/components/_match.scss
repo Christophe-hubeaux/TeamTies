@@ -52,8 +52,29 @@
 }
 
 .dashboard-match {
-  margin: 50px;
-  width: 725px;
+  margin: 5%; /* Utilisation d'une marge relative */
+  max-width: 100%; /* Utilisation d'une largeur maximale relative */
+}
+
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 768px) {
+  .podium-container {
+    width: 100%; /* Pour les écrans plus petits, utiliser 100% de la largeur */
+  }
+}
+
+/* Media queries pour les écrans de taille moyenne */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .podium-container {
+    width: 90%; /* Pour les écrans de taille moyenne, utiliser 90% de la largeur */
+  }
+}
+
+/* Media queries pour les écrans de grande taille */
+@media only screen and (min-width: 1025px) {
+  .podium-container {
+    width: 725px; /* Pour les écrans plus grands, utiliser une largeur fixe de 725px */
+  }
 }
 
 .dashboard-match-title {
@@ -63,9 +84,16 @@
 }
 
 .dashboard-match .match {
-  width: 400px;
-  margin: 30px auto;
+  width: 90%;
+  max-width: 400px;
+  margin: 5% auto;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 600px) {
+  .dashboard-match .match {
+    max-width: 100%; /* Pour les écrans plus petits, utiliser 100% de la largeur */
+  }
 }
 
 .result {

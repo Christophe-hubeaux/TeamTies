@@ -15,6 +15,12 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+  .infos-flex {
+    flex-direction: column;
+  }
+}
+
 .hello-flex {
   display: flex;
   justify-content: flex-start;
@@ -67,7 +73,15 @@
 
 .bottom-dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 1279px) {
+  .bottom-dashboard {
+    flex-direction: column; /* Afficher les éléments en colonne */
+    align-items: center; /* Centrer les éléments horizontalement */
+  }
 }
 
 .btn-share {

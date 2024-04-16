@@ -5,12 +5,6 @@ class Game < ApplicationRecord
   has_many :departments, dependent: :destroy
   has_one :chat
 
-  # after_create :create_chat_associated_with_game
-
-  # private
-
-  # def create_chat_associated_with_game
-  #   Chat.create(name: self.name, game: self)
-  # end
+validates :name, uniqueness: true
 
 end

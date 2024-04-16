@@ -3,7 +3,7 @@
       <%# <%= render "shared/popup" %>
         <h1>Dashboard </h1>
         <div class="hello-flex">
-        <h2>👋🏻 </h2> <p>Bonjour <%= current_user.pseudo %> ! </p>
+         <h3>Bonjour <%= current_user.pseudo %> 👋🏻</h3>
         </div>
         <div class="infos-flex">
         <p><strong>Équipe </strong><%= @department.name %></p>
@@ -16,41 +16,27 @@
               <i class="fa-regular fa-pen-to-square"></i> Editer la partie
               <% end %>
             <% end %>
-            <button class="btn btn-test" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              <i class="fa-solid fa-arrow-up-from-bracket"></i> Partager la partie
-            </button>
         </div>
-
-      <%# <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <div data-controller="clipboard bounce" class="input-group mb-3">
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary alive" type="button" data-action="mouseup->clipboard#copy mouseup->bounce#startBounce" data-bounce-target="button">Copier</button>
-          </div>
-          <input type="text" value="<%= url_for(controller: 'games', action: 'join', code: @game.code, only_path: false)" class="form-control bg-transparent border-0" placeholder="" aria-label="" aria-describedby="basic-addon1" data-clipboard-target="input" disabled>
-        <%# </div>
-        </div>
-      </div> %>
 
         <div class="performance-container">
-        <p><strong> Performances sur les 7 derniers jours </strong></p>
-          <div class="flex-perf">
-          <div class="perf-category">
-            <div class="perf-icon"><%= image_tag "v242_54.png", class: "avatar" %></div>
-            <div class="perf-text">+ 12 points</div>
-          </div>
+          <p><strong> Mes derniers pronos </strong></p>
+            <div class="flex-perf">
+              <div class="perf-category">
+                <div class="perf-icon"><%= image_tag "v242_54.png", class: "avatar" %></div>
+                <div class="perf-text">+ 12 points</div>
+              </div>
 
-          <div class="perf-category">
-            <div class="perf-icon"><%= image_tag "v242_55.png", class: "avatar" %></div>
-            <div class="perf-text">+ 2 places au classement individuel</div>
-          </div>
+              <div class="perf-category">
+                <div class="perf-icon"><%= image_tag "v242_55.png", class: "avatar" %></div>
+                <div class="perf-text">+ 2 places au classement individuel</div>
+              </div>
 
-          <div class="perf-category">
-            <div class="perf-icon"><%= image_tag "v242_56.png", class: "avatar" %></div>
-            <div class="perf-text">+ 1 place au classement par équipe</div>
-          </div>
-          </div>
-</div>
+              <div class="perf-category">
+                <div class="perf-icon"><%= image_tag "v242_56.png", class: "avatar" %></div>
+                <div class="perf-text">+ 1 place au classement par équipe</div>
+              </div>
+            </div>
+        </div>
   </div>
 </div>
 

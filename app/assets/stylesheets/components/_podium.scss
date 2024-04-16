@@ -1,6 +1,27 @@
 .podium-container {
-  margin: 50px;
-  width: 725px;
+  margin: 5%; /* Utilisation d'une marge relative */
+  max-width: 100%; /* Utilisation d'une largeur maximale relative */
+}
+
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 768px) {
+  .podium-container {
+    width: 100%; /* Pour les écrans plus petits, utiliser 100% de la largeur */
+  }
+}
+
+/* Media queries pour les écrans de taille moyenne */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .podium-container {
+    width: 90%; /* Pour les écrans de taille moyenne, utiliser 90% de la largeur */
+  }
+}
+
+/* Media queries pour les écrans de grande taille */
+@media only screen and (min-width: 1025px) {
+  .podium-container {
+    width: 725px; /* Pour les écrans plus grands, utiliser une largeur fixe de 725px */
+  }
 }
 
 .title-podium-cat {
@@ -10,16 +31,31 @@
 }
 
 .podium-table table {
-  width: 600px;
+  width: 100%; /* Utilisation d'une largeur relative */
+  max-width: 100%; /* Largeur maximale relative */
   line-height: 25px;
 }
 
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 600px) {
+  .podium-table table {
+    font-size: 80%; /* Réduire la taille de la police pour les écrans plus petits */
+  }
+}
+
 .podium-table {
-  margin-top: 30px;
+  margin-top: 3%; /* Utilisation d'une marge relative */
   border-radius: 22px;
-  padding: 20px 30px;
-  padding-left: 62px;
+  padding: 2% 3%; /* Utilisation d'un padding relatif */
+  padding-left: 8%; /* Utilisation d'un padding relatif */
   height: auto;
+}
+
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 600px) {
+  .podium-table {
+    padding: 5% 8%; /* Réduire le padding pour les écrans plus petits */
+  }
 }
 
 .podium-category-ind tbody tr:nth-child(odd) {

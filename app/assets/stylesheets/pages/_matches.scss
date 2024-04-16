@@ -1,16 +1,25 @@
 
 .filter-by-date {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */
   justify-content: space-evenly;
   margin-top: 2em;
   margin-bottom: 1.5em;
   position: sticky;
-  top: 0; /* Adjust as needed */
-  // background-color: white; /* Just for visibility */
+  top: 100px; /* Adjust as needed */
   padding: 20px;
   align-items: center;
 }
+
+/* Media queries pour les écrans de petite taille */
+@media only screen and (max-width: 600px) {
+  .filter-by-date {
+    flex-direction: row; /* Afficher les éléments en colonne */
+    position: static;
+
+  }
+}
+
 .matchs {
     display: flex;
     flex-direction: column;
