@@ -20,6 +20,7 @@ class GamesController < ApplicationController
 
   def dashboard
     @dashboard = true
+    @latest_pronostic = current_user.pronostics.order(updated_at: :desc).where.not(status: nil).first
     @game = Game.find(params[:id])
     @department = UsersGame.find_by(user: current_user, game: @game).department
     @owner = UsersGame.find_by(user: current_user, game: @game).owner

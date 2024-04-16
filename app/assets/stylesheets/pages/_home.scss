@@ -36,7 +36,7 @@
   margin-bottom: 1rem;
   position: absolute;
   left: -25vw;
-  top: 45vh;
+  // top: 45vh;
   text-align: center;
   // width: 100%;
 }
@@ -44,7 +44,7 @@
 #text-white {
   color: white;
   text-shadow: 0px 4px 4px #000;
-  font-size: 1vw;
+  font-size: 100%;
 }
 
 .p-ban a {
@@ -84,7 +84,15 @@
 .btn-left {
   margin-right: 10px;
 }
-
+/* Ajouter des règles de media queries pour ajuster les styles selon la taille de l'écran */
+@media screen and (max-width: 985px) {
+  .btn-right {
+    margin-left: 0px;
+  }
+  .btn-left {
+    margin-right: 0px;
+  }
+}
 
 .infos {
   display: flex;

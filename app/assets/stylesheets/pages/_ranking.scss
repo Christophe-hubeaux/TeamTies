@@ -28,27 +28,35 @@
 }
 
 .card-table table {
-  width: 600px;
+  width: 100%; /* Utiliser 100% pour que le tableau s'adapte à la largeur de son conteneur */
   line-height: 25px;
 }
 
-.ranking-category-left {
-  width: 725px;
-}
-
+.ranking-category-left,
 .ranking-category-right {
-  width: 725px;
+  width: 100%; /* Utiliser 100% pour que les catégories s'adaptent à la largeur de leur conteneur */
+  max-width: 700px; /* Limiter la largeur maximale pour assurer une meilleure lisibilité sur de grands écrans */
+  margin: 0 auto; /* Centrer les éléments horizontalement */
 }
 
 .card-table {
-  margin-top: 30px;
-  border-radius: 22px;
+  margin-top: 3vw; /* Utiliser une marge relative à la largeur de la vue pour un espacement plus flexible */
+  border-radius: 2vw; /* Utiliser un rayon de bordure relatif à la largeur de la vue pour une apparence plus fluide */
   background: #F5F5F5;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 40px;
-  padding-left: 62px;
+  padding: 4vw; /* Utiliser un padding relatif à la largeur de la vue pour un espacement plus flexible */
+  padding-left: 6vw; /* Ajuster le padding gauche en conséquence */
   height: auto;
 }
+
+/* Ajouter des règles de media queries pour ajuster les styles selon la taille de l'écran */
+@media screen and (max-width: 768px) {
+  .card-table {
+    padding: 5vw;
+    padding-left: 7vw;
+  }
+}
+
 
 .ranking-category-left thead tr {
   background-color: #844B85;

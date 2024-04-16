@@ -3,12 +3,14 @@
       <%# <%= render "shared/popup" %>
         <h1>Dashboard </h1>
         <div class="hello-flex">
-         <h3>Bonjour <%= current_user.pseudo %> 👋🏻</h3>
+         <h3 class="mt-2">Bonjour <%= current_user.pseudo %> 👋🏻</h3>
         </div>
         <div class="infos-flex">
-        <p><strong>Équipe </strong><%= @department.name %></p>
-        <p><strong>Partie </strong> <%= @game.name %></p>
-        <p><strong>Code </strong> <%= @game.code %></p>
+          <ul>
+            <li><strong>Partie -</strong> <%= @game.name %></li>
+            <li><strong>Equipe -</strong> <%= @department.name %></li>
+            <li><strong>Code -</strong> <%= @game.code %></li>
+          </ul>
         </div>
         <div class="buttons-flex">
             <% if @owner == true %>
@@ -19,21 +21,21 @@
         </div>
 
         <div class="performance-container">
-          <p><strong> Mes derniers pronos </strong></p>
+          <p><strong> Mon dernier prono </strong></p>
             <div class="flex-perf">
               <div class="perf-category">
                 <div class="perf-icon"><%= image_tag "v242_54.png", class: "avatar" %></div>
-                <div class="perf-text">+ 12 points</div>
-              </div>
-
-              <div class="perf-category">
-                <div class="perf-icon"><%= image_tag "v242_55.png", class: "avatar" %></div>
-                <div class="perf-text">+ 2 places au classement individuel</div>
-              </div>
-
-              <div class="perf-category">
-                <div class="perf-icon"><%= image_tag "v242_56.png", class: "avatar" %></div>
-                <div class="perf-text">+ 1 place au classement par équipe</div>
+                <div class="perf-text">
+                  <% if @latest_pronostic != nil %>
+                    <% if @latest_pronostic.status == 'bonus'%>
+                      + 3 points 
+                    <% elsif @latest_pronostic.status == 'win'%>
+                      + 1 point
+                    <% else %>
+                      + 0 point
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             </div>
         </div>
