@@ -40,6 +40,11 @@
   text-align: center;
   // width: 100%;
 }
+@media screen and (max-width: 880px) {
+  .p-ban{
+    left: -30vw;
+  }
+}
 
 #text-white {
   color: white;
@@ -120,6 +125,11 @@
 
 .infos-img {
   margin: 0px 30px
+}
+@media screen and (max-width: 880px) {
+  .infos-img {
+    margin-top: 10%;
+  }
 }
 
 .rules {
