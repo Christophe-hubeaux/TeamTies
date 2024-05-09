@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="party">
+    <h2>Créer une nouveau match</h2>
+    <%= simple_form_for [:admin, @match] do |f| %>
+      <%= f.input :group %>
+      <%= f.input :stage %>
+      <%= f.input :tournament %>
+      <%= f.input :home_team_id, collection: Team.all, label_method: :name, value_method: :id, prompt: "Sélectionner l'équipe à domicile" %>
+      <%= f.input :away_team_id, collection: Team.all, label_method: :name, value_method: :id, prompt: "Sélectionner l'équipe à l'extérieur" %>
+      <%# <%= f.input :date, as: :datetime_picker %>    
+      <%= button_tag type: 'submit', id: "newmatch" do %>
+        <i class="fa-regular fa-square-plus" aria-hidden="true"></i> Créer le match
+      <% end %>
+    <% end %>
+  </div>
+</div>

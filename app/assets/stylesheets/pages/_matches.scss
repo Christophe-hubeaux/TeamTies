@@ -1,4 +1,15 @@
 
+.tabs {
+  margin-top: 2em;
+  text-decoration: none;
+  font-size: large;
+  display: inline-block;
+}
+
+.tabs a {
+  text-decoration: none;
+  color: black;
+}
 .filter-by-date {
   display: flex;
   flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne si nécessaire */

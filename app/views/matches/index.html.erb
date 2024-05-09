@@ -2,150 +2,186 @@
     <div class="page-title mt-5">
         <h1 class="prono-title">Mes pronos</h1>
     </div>
-    <div class="filter-by-date">
-        <%= link_to "Ve. 14 juin", game_matches_path(@game, anchor: "14/06"), class: "btn btn-filter" %>
-        <%= link_to "Sa. 15 juin", game_matches_path(@game, anchor: "15/06"), class: "btn btn-filter" %>
-        <%= link_to "Di. 16 juin", game_matches_path(@game, anchor: "16/06"), class: "btn btn-filter" %>
-        <%= link_to "Lu. 17 juin", game_matches_path(@game, anchor: "17/06"), class: "btn btn-filter" %>
-        <%= link_to "Ma. 18 juin", game_matches_path(@game, anchor: "18/06"), class: "btn btn-filter" %>
-        <%= link_to "Me. 19 juin", game_matches_path(@game, anchor: "19/06"), class: "btn btn-filter" %>
-        <%= link_to "Je. 20 juin", game_matches_path(@game, anchor: "20/06"), class: "btn btn-filter" %>
-        <%= link_to "Ve. 21 juin", game_matches_path(@game, anchor: "21/06"), class: "btn btn-filter" %>
-        <%= link_to "Sa. 22 juin", game_matches_path(@game, anchor: "22/06"), class: "btn btn-filter" %>
-        <%= link_to "Di. 23 juin", game_matches_path(@game, anchor: "23/06"), class: "btn btn-filter" %>
-        <%= link_to "Lu. 24 juin", game_matches_path(@game, anchor: "24/06"), class: "btn btn-filter" %>
-        <%= link_to "Ma. 25 juin", game_matches_path(@game, anchor: "25/06"), class: "btn btn-filter" %>
-        <%= link_to "Me. 26 juin", game_matches_path(@game, anchor: "26/06"), class: "btn btn-filter" %>
+    <div class="tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Phase de poule</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Huitième de finale</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Quart de finale</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="semi-tab" data-bs-toggle="tab" data-bs-target="#semi-tab-pane" type="button" role="tab" aria-controls="semi-tab-pane" aria-selected="false">Demi-finale</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="final-tab" data-bs-toggle="tab" data-bs-target="#final-tab-pane" type="button" role="tab" aria-controls="final-tab-pane" aria-selected="false">Finale</button>
+            </li>
+        </ul>
     </div>
-
-    <div class="matchs">
-
-        <div class="date" id="14/06">
-            <h3 class="day-date mt-0">Vendredi 14 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_14.each do |match| %>
-                <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
-            <% end %>
-        </div>
-
-        <div class="date" id="15/06">
-            <h3 class="day-date">Samedi 15 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_15.each do |match| %>
-                <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
-            <% end %>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div class="filter-by-date">
+            <%= link_to "Ve. 14 juin", game_matches_path(@game, anchor: "14/06"), class: "btn btn-filter" %>
+            <%= link_to "Sa. 15 juin", game_matches_path(@game, anchor: "15/06"), class: "btn btn-filter" %>
+            <%= link_to "Di. 16 juin", game_matches_path(@game, anchor: "16/06"), class: "btn btn-filter" %>
+            <%= link_to "Lu. 17 juin", game_matches_path(@game, anchor: "17/06"), class: "btn btn-filter" %>
+            <%= link_to "Ma. 18 juin", game_matches_path(@game, anchor: "18/06"), class: "btn btn-filter" %>
+            <%= link_to "Me. 19 juin", game_matches_path(@game, anchor: "19/06"), class: "btn btn-filter" %>
+            <%= link_to "Je. 20 juin", game_matches_path(@game, anchor: "20/06"), class: "btn btn-filter" %>
+            <%= link_to "Ve. 21 juin", game_matches_path(@game, anchor: "21/06"), class: "btn btn-filter" %>
+            <%= link_to "Sa. 22 juin", game_matches_path(@game, anchor: "22/06"), class: "btn btn-filter" %>
+            <%= link_to "Di. 23 juin", game_matches_path(@game, anchor: "23/06"), class: "btn btn-filter" %>
+            <%= link_to "Lu. 24 juin", game_matches_path(@game, anchor: "24/06"), class: "btn btn-filter" %>
+            <%= link_to "Ma. 25 juin", game_matches_path(@game, anchor: "25/06"), class: "btn btn-filter" %>
+            <%= link_to "Me. 26 juin", game_matches_path(@game, anchor: "26/06"), class: "btn btn-filter" %>
         </div>
 
-        <div class="date" id="16/06">
-            <h3 class="day-date">Dimanche 16 juin</h3>
-        </div>
+        <div class="matchs">
+
+            <div class="date" id="14/06">
+                <h3 class="day-date mt-0">Vendredi 14 juin</h3>
+            </div>
             <div class="day-matchs">
-            <% @matchs_2024_06_16.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+                <% @matchs_2024_06_14.each do |match| %>
+                    <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                <% end %>
+            </div>
 
-        <div class="date" id="17/06">
-            <h3 class="day-date">Lundi 17 juin</h3>
-        </div>
+            <div class="date" id="15/06">
+                <h3 class="day-date">Samedi 15 juin</h3>
+            </div>
             <div class="day-matchs">
-            <% @matchs_2024_06_17.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+                <% @matchs_2024_06_15.each do |match| %>
+                    <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                <% end %>
+            </div>
 
-        <div class="date" id="18/06">
-            <h3 class="day-date">Mardi 18 juin</h3>
-        </div>
+            <div class="date" id="16/06">
+                <h3 class="day-date">Dimanche 16 juin</h3>
+            </div>
+                <div class="day-matchs">
+                <% @matchs_2024_06_16.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
+
+            <div class="date" id="17/06">
+                <h3 class="day-date">Lundi 17 juin</h3>
+            </div>
+                <div class="day-matchs">
+                <% @matchs_2024_06_17.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
+
+            <div class="date" id="18/06">
+                <h3 class="day-date">Mardi 18 juin</h3>
+            </div>
+                <div class="day-matchs">
+                <% @matchs_2024_06_18.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
+
+            <div class="date" id="19/06">
+                <h3 class="day-date">Mercredi 19 juin</h3>
+            </div>
+                <div class="day-matchs">
+                <% @matchs_2024_06_19.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
+
+            <div class="date" id="20/06">
+                <h3 class="day-date">Jeudi 20 juin</h3>
+            </div>
             <div class="day-matchs">
-            <% @matchs_2024_06_18.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+                <% @matchs_2024_06_20.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="19/06">
-            <h3 class="day-date">Mercredi 19 juin</h3>
-        </div>
+            <div class="date" id="21/06">
+                <h3 class="day-date">Vendredi 21 juin</h3>
+            </div>
             <div class="day-matchs">
-            <% @matchs_2024_06_19.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+                <% @matchs_2024_06_21.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="20/06">
-            <h3 class="day-date">Jeudi 20 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_20.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+            <div class="date" id="22/06">
+                <h3 class="day-date">Samedi 22 juin</h3>
+            </div>
+            <div class="day-matchs">
+                <% @matchs_2024_06_22.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="21/06">
-            <h3 class="day-date">Vendredi 21 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_21.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+            <div class="date" id="23/06">
+                <h3 class="day-date">Dimanche 23 juin</h3>
+            </div>
+            <div class="day-matchs">
+                <% @matchs_2024_06_23.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="22/06">
-            <h3 class="day-date">Samedi 22 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_22.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+            <div class="date" id="24/06">
+                <h3 class="day-date">Lundi 24 juin</h3>
+            </div>
+            <div class="day-matchs">
+                <% @matchs_2024_06_24.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="23/06">
-            <h3 class="day-date">Dimanche 23 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_23.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+            <div class="date" id="25/06">
+                <h3 class="day-date">Mardi 25 juin</h3>
+            </div>
+            <div class="day-matchs">
+                <% @matchs_2024_06_25.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="24/06">
-            <h3 class="day-date">Lundi 24 juin</h3>
-        </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_24.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
-        </div>
+            <div class="date" id="26/06">
+                <h3 class="day-date">Mercredi 26 juin</h3>
+            </div>
+            <div class="day-matchs">
+                <% @matchs_2024_06_26.each do |match| %>
+                    <% prono = @pronos.select { |prono| prono.match == match }.first %>
+                    <%= render "shared/match", match: match, prono: prono %>
+                <% end %>
+            </div>
 
-        <div class="date" id="25/06">
-            <h3 class="day-date">Mardi 25 juin</h3>
         </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_25.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
         </div>
-
-        <div class="date" id="26/06">
-            <h3 class="day-date">Mercredi 26 juin</h3>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        ...
         </div>
-        <div class="day-matchs">
-            <% @matchs_2024_06_26.each do |match| %>
-                <% prono = @pronos.select { |prono| prono.match == match }.first %>
-                <%= render "shared/match", match: match, prono: prono %>
-            <% end %>
+        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        ...
+        </div>
+        <div class="tab-pane fade" id="semi-tab-pane" role="tabpanel" aria-labelledby="semi-tab" tabindex="0">
+        ...
+        </div>
+        <div class="tab-pane fade" id="final-tab-pane" role="tabpanel" aria-labelledby="final-tab" tabindex="0">
+        ...
         </div>
 
     </div>

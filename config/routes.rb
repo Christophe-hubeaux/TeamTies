@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do 
-    resources :matches, only: [:index, :edit, :update]
+    resources :matches, only: [:index, :new, :create, :edit, :update]
   end
 
   namespace :organisateur do
