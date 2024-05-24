@@ -12,7 +12,9 @@
     </div>
     <div class="score">
         <div class="group text-center mb-2">
+            <% unless match.date.nil?%>
             <%= match.date.strftime("%d-%m") %>
+            <% end %>
         </div>
         <div class="group text-center mb-2">
             Groupe <%= match.group %>

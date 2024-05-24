@@ -5,19 +5,19 @@
     <div class="tabs">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Phase de poule</button>
+                <button class="nav-link active red" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Phase de poule</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Huitième de finale</button>
+                <button class="nav-link red" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Huitième de finale</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Quart de finale</button>
+                <button class="nav-link red" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Quart de finale</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="semi-tab" data-bs-toggle="tab" data-bs-target="#semi-tab-pane" type="button" role="tab" aria-controls="semi-tab-pane" aria-selected="false">Demi-finale</button>
+                <button class="nav-link red" id="semi-tab" data-bs-toggle="tab" data-bs-target="#semi-tab-pane" type="button" role="tab" aria-controls="semi-tab-pane" aria-selected="false">Demi-finale</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="final-tab" data-bs-toggle="tab" data-bs-target="#final-tab-pane" type="button" role="tab" aria-controls="final-tab-pane" aria-selected="false">Finale</button>
+                <button class="nav-link red" id="final-tab" data-bs-toggle="tab" data-bs-target="#final-tab-pane" type="button" role="tab" aria-controls="final-tab-pane" aria-selected="false">Finale</button>
             </li>
         </ul>
     </div>
@@ -172,16 +172,103 @@
         </div>
         </div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-        ...
+            <div class="matchs">
+                <div class="date" id="29/06">
+                    <h3 class="day-date mt-0">Samedi 29 juin</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_06_29.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>
+            <div class="matchs">
+                <div class="date" id="30/06">
+                    <h3 class="day-date mt-0">Dimanche 30 juin</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_06_30.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div> 
+            <div class="matchs">
+                <div class="date" id="1/07">
+                    <h3 class="day-date mt-0">Lundi 1 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_01.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>    
+            <div class="matchs">
+                <div class="date" id="2/07">
+                    <h3 class="day-date mt-0">Mardi 2 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_02.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div> 
+        
         </div>
         <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-        ...
+            <div class="matchs">
+                <div class="date" id="5/07">
+                    <h3 class="day-date mt-0">Vendredi 5 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_05.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>
+            <div class="matchs">
+                <div class="date" id="6/07">
+                    <h3 class="day-date mt-0">Samedi 6 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_06.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>  
         </div>
         <div class="tab-pane fade" id="semi-tab-pane" role="tabpanel" aria-labelledby="semi-tab" tabindex="0">
-        ...
+            <div class="matchs">
+                <div class="date" id="09/07">
+                    <h3 class="day-date mt-0">Mardi 9 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_09.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>
+            <div class="matchs">
+                <div class="date" id="10/07">
+                    <h3 class="day-date mt-0">Mercredi 10 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_10.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>  
         </div>
         <div class="tab-pane fade" id="final-tab-pane" role="tabpanel" aria-labelledby="final-tab" tabindex="0">
-        ...
+            <div class="matchs">
+                <div class="date" id="14/07">
+                    <h3 class="day-date mt-0">Dimanche 14 juillet</h3>
+                </div>
+                <div class="day-matchs">
+                    <% @matchs_2024_07_14.each do |match| %>
+                        <%= render "shared/match", match: match, prono: @pronos.find_by(match: match) %>
+                    <% end %>
+                </div> 
+            </div>  
         </div>
 
     </div>

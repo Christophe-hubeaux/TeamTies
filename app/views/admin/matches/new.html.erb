@@ -2,9 +2,9 @@
   <div class="party">
     <h2>Créer une nouveau match</h2>
     <%= simple_form_for [:admin, @match] do |f| %>
-      <%= f.input :group %>
-      <%= f.input :stage %>
-      <%= f.input :tournament %>
+      <%= f.input :stage, collection: Match::STAGES %>
+      <%= f.input :date, as: :datetime %>
+      <%# <%= f.input :date, as: :datetime_select %>
       <%= f.input :home_team_id, collection: Team.all, label_method: :name, value_method: :id, prompt: "Sélectionner l'équipe à domicile" %>
       <%= f.input :away_team_id, collection: Team.all, label_method: :name, value_method: :id, prompt: "Sélectionner l'équipe à l'extérieur" %>
       <%# <%= f.input :date, as: :datetime_picker %>    

@@ -11,7 +11,9 @@
     </div>
     <div class="score">
         <div class="group text-center mb-2">
+            <% unless match.group.nil? %>
             Groupe <%= match.group %>
+            <% end %>
         </div>
         <div class="prono">
             <div class="monprono">Mon prono :</div>
