@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_194559) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_113500) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -140,7 +140,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_194559) do
     t.datetime "updated_at", null: false
     t.bigint "department_id"
     t.boolean "owner", default: false
+    t.bigint "final_winner_id"
     t.index ["department_id"], name: "index_users_games_on_department_id"
+    t.index ["final_winner_id"], name: "index_users_games_on_final_winner_id"
     t.index ["game_id"], name: "index_users_games_on_game_id"
     t.index ["user_id"], name: "index_users_games_on_user_id"
   end
@@ -158,5 +160,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_194559) do
   add_foreign_key "pronostics", "users"
   add_foreign_key "users_games", "departments"
   add_foreign_key "users_games", "games"
+  add_foreign_key "users_games", "teams", column: "final_winner_id"
   add_foreign_key "users_games", "users"
 end

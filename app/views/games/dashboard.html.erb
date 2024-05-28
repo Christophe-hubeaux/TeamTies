@@ -11,6 +11,14 @@
             <li><strong>Equipe -</strong> <%= @department.name %></li>
             <li><strong>Code -</strong> <%= @game.code %></li>
           </ul>
+          <div>
+            <% if @user_game.final_winner_id.nil? %>
+              <%= render "shared/final-winner-form" %>
+            <% else %>
+              <h4>Mon champion final</h4>
+              <%= @user_game.final_winner.name %>
+            <% end %>
+          </div>
         </div>
         <div class="buttons-flex">
             <% if @owner == true %>

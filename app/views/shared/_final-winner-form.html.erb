@@ -1,0 +1,12 @@
+<div class="final-winner">
+    <%= simple_form_for([@game, @user_game], url: game_users_game_path(@game, @user_game)) do |f| %>
+        <div class="field">
+            <%= f.label :final_winner_id, "Champion final" %>
+            <%= f.collection_select :final_winner_id, Team.all, :id, :name, prompt: "Choisis une équipe" %>
+        </div>
+    <div class="actions">
+        <%= f.submit "Valider" %>
+    </div>
+    <% end %>
+</div>
+

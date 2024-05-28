@@ -22,6 +22,7 @@ class GamesController < ApplicationController
     @dashboard = true
     @latest_pronostic = current_user.pronostics.order(updated_at: :desc).where.not(status: nil).first
     @game = Game.find(params[:id])
+    @user_game = UsersGame.find_by(game: @game, user: current_user)
     @department = UsersGame.find_by(user: current_user, game: @game).department
     @owner = UsersGame.find_by(user: current_user, game: @game).owner
     if Match.exists?(params[:id])

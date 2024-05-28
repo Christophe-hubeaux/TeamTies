@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :games, only: %i[index new create] do # /games GET user-games index, /games/new GET games new, /game/new POST games create
-    resources :users_games, only: %i[new create]
+    resources :users_games, only: %i[new create edit update]
     resources :teams, only: [:index]
     resources :matches, only: [:index] do
       resources :pronostics, only: %i[create update]
