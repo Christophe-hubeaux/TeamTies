@@ -6,8 +6,9 @@ class PronosticsController < ApplicationController
         @prono.match = Match.find(params[:match_id])
         @date = @prono.match.date.strftime("%d/%m")
         @prono.game = @game
-        if @prono.save
+        if @prono.save && @prono.match.stage == 'phase de groupes'
             redirect_to game_matches_path(@game, anchor: @date)
+        elsif @prono.save
         else
             render "matches/index", status: :unprocessable_entity
         end
@@ -15,7 +16,9 @@ class PronosticsController < ApplicationController
 
     def update
         @game = Game.find(params[:game_id])
-        @prono = Pronostic.update(prono_params)
+        @match = Match.find(params[:match_id])
+        @prono = Pronostic.where(match_id: @match, game_id: @game, user_id: current_user)
+        @prono.update(prono_params)
     end
 
     private

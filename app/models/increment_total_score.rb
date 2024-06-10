@@ -5,18 +5,22 @@ class IncrementTotalScore < ApplicationRecord
     end
 
     def updatePronoStatus
-        @pronos = Pronostic.where(match_id: @match)        
-        @pronos.each do |prono|
-            if (@match.home_team_result == prono.home_team_prono) && (@match.away_team_result == prono.away_team_prono)
-                prono.status = "bonus"
-            elsif ((@match.home_team_result > @match.away_team_result) && (prono.home_team_prono > prono.away_team_prono)) || ((@match.home_team_result == @match.away_team_result) && (prono.home_team_prono == prono.away_team_prono)) || ((@match.home_team_result < @match.away_team_result) && (prono.home_team_prono < prono.away_team_prono))
-                prono.status = "win"
-            else
-                prono.status = "lose"
+        # if @match.stage == "finale"
+
+        # else 
+            @pronos = Pronostic.where(match_id: @match)        
+            @pronos.each do |prono|
+                if (@match.home_team_result == prono.home_team_prono) && (@match.away_team_result == prono.away_team_prono)
+                    prono.status = "bonus"
+                elsif ((@match.home_team_result > @match.away_team_result) && (prono.home_team_prono > prono.away_team_prono)) || ((@match.home_team_result == @match.away_team_result) && (prono.home_team_prono == prono.away_team_prono)) || ((@match.home_team_result < @match.away_team_result) && (prono.home_team_prono < prono.away_team_prono))
+                    prono.status = "win"
+                else
+                    prono.status = "lose"
+                end
+                prono.save
             end
-            prono.save
-        end
-        addScore
+            addScore
+        # end
     end
 
     def addScore
@@ -33,4 +37,24 @@ class IncrementTotalScore < ApplicationRecord
         end
     end
 
+    def matchWinner
+        if (@match.home_team_result > @match.away_team_result)
+            @match.winner_id = @match.home_team_id
+        elsif (@match.home_team_result < @match.away_team_result)
+            @match.winner_id = @match.away_team_id
+        else 
+            @match.winner_id = 0
+        end
+        @match.save
+    end
+
+    def finalWinner
+        # called if last game (final)
+        #  find all prono with team = winner team
+        @rightFinalPronos = UsersGame.where(final_winner_id: @match.winner_id)
+        @rightFinalPronos.each do |usergame|
+            usergame.total_score += 10
+            usergame.save
+        end
+    end
 end

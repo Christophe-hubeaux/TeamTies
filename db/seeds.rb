@@ -27,7 +27,7 @@ user1 = User.create!(
 )
 
 user2 = User.create!(
-  email: 'ch.hubeaux@gmail.com',
+  email: 'ch.hubeaux@gmail.test',
   password: 'test01', # 6 caractères minimum
   password_confirmation: 'test01',
   pseudo: 'Chris',

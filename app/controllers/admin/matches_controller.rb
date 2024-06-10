@@ -22,7 +22,9 @@ class Admin::MatchesController < ApplicationController
         if @match.update(match_params)
           redirect_to :admin_matches, notice: 'Match mis à jour avec succès.'
           increment = IncrementTotalScore.new(@match)
+          increment.matchWinner
           increment.updatePronoStatus
+          increment.finalWinner if @match.stage == 'finale'
         else
           render :edit
         end

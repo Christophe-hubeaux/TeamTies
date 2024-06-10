@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-  <a class="navbar-brand teamties" href="#">TEAMTIES</a>
+  <%= link_to 'TEAMTIES', root_path, class: 'navbar-brand teamties' %>
   <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,7 +57,7 @@
                 <% end %>
         </ul>
         <ul class="navbar-nav justify-content-end pe-3">
-            <li class="nav-item dropdown d-flex justify-content-center mt-3">
+            <li class="nav-item dropdown d-flex justify-content-center">
                 <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <% if current_user.avatar.attached? %>
                     <%= image_tag url_for(current_user.avatar), class: "avatar-large", alt: "avatar dropdown menu" %>

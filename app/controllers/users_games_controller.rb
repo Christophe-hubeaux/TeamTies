@@ -29,16 +29,20 @@ class UsersGamesController < ApplicationController
   def update
     @game = Game.find(params[:game_id])
     @user_game = UsersGame.find_by(game: @game, user: current_user)
-    if @user_game.update(user_game_params)
+    if @user_game.update(user_game_prono_params)
       redirect_to dashboard_game_path(@game), notice: 'Final winner was successfully updated.'
     else
-      render :dashboard_game_path(@game), status: :unprocessable_entity
+      redirect_to dashboard_game_path(@game), status: :unprocessable_entity
     end
   end
 
   private
 
   def user_game_params
-    params.require(:users_game).permit(:department, :final_winner_id)
+    params.require(:users_game).permit(:department)
+  end
+
+  def user_game_prono_params
+    params.require(:users_game).permit(:final_winner_id)
   end
 end

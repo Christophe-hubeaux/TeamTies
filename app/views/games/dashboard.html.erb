@@ -15,7 +15,7 @@
             <% if @user_game.final_winner_id.nil? %>
               <%= render "shared/final-winner-form" %>
             <% else %>
-              <h4>Mon champion final</h4>
+              <h4>Equipe championne</h4>
               <%= @user_game.final_winner.name %>
             <% end %>
           </div>
