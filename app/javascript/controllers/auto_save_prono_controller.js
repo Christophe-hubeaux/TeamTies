@@ -11,6 +11,8 @@ export default class extends Controller {
   }
 
   submit() {
-    this.element.submit();
+    setTimeout(()=>{
+      this.element.submit();
+    }, 1000);
   }
 };
