@@ -57,6 +57,14 @@
   }
 }
 
+@media screen and (max-width: 400px) {
+  .card-table {
+    padding: 5vw;
+    padding-left: 7vw;
+    font-size: 12px;
+  }
+}
+
 
 .ranking-category-left thead tr {
   background-color: #844B85;
