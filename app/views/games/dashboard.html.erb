@@ -14,9 +14,13 @@
           <div>
             <% if @user_game.final_winner_id.nil? %>
               <%= render "shared/final-winner-form" %>
-            <% else %>
+            <% elsif Date.today > Date.new(2024, 6, 18) %>
               <h4>Equipe championne</h4>
               <%= @user_game.final_winner.name %>
+            <% else %>
+              <h4>Mon prono</h4>
+              <%# <%= @user_game.final_winner.name %>
+              <%= render "shared/final-winner-form" %>
             <% end %>
           </div>
         </div>
