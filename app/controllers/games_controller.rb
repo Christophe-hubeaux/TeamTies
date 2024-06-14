@@ -84,7 +84,9 @@ class GamesController < ApplicationController
 
   def check_code
     @game = Game.find_by(code: params[:code])
-    if @game
+    if UsersGame.exists?(user: current_user, game: @game)
+      redirect_to dashboard_game_path(@game)
+    elsif @game
       flash[:notice] = "Le code du jeu est valide."
       redirect_to new_game_users_game_path(@game)
     end

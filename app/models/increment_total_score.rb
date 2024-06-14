@@ -8,7 +8,7 @@ class IncrementTotalScore < ApplicationRecord
         # if @match.stage == "finale"
 
         # else 
-            @pronos = Pronostic.where(match_id: @match)        
+            @pronos = Pronostic.where(match_id: @match, home_team_prono: 0..99, away_team_prono: 0..99)    
             @pronos.each do |prono|
                 if (@match.home_team_result == prono.home_team_prono) && (@match.away_team_result == prono.away_team_prono)
                     prono.status = "bonus"
@@ -43,7 +43,7 @@ class IncrementTotalScore < ApplicationRecord
         elsif (@match.home_team_result < @match.away_team_result)
             @match.winner_id = @match.away_team_id
         else 
-            @match.winner_id = 0
+            @match.winner_id = nil
         end
         @match.save
     end
