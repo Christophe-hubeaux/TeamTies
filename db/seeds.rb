@@ -155,7 +155,7 @@ UsersGame.create!(user: user10, game: blueteam1, total_score: 8, department: dep
 UsersGame.create!(user: user11, game: blueteam1, total_score: 22, department: dept2)
 UsersGame.create!(user: user12, game: blueteam1, total_score: 21, department: dept6)
 
-match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, date: DateTime.strptime('06/14/2024 18:00', '%m/%d/%Y %H:%M'))
+match1 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: germany, away_team: scotland, date: DateTime.strptime('06/14/2024 21:00', '%m/%d/%Y %H:%M'))
 match2 = Match.create!(group: 'A', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: hungary, away_team: switzerland, date: DateTime.strptime('06/15/2024 15:00', '%m/%d/%Y %H:%M'))
 match3 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: spain, away_team: croatia, date: DateTime.strptime('06/15/2024 18:00', '%m/%d/%Y %H:%M'))
 match4 = Match.create!(group: 'B', stage: 'phase de groupes', tournament: 'UEFA Euro 2024', home_team: italy, away_team: albania, date: DateTime.strptime('06/15/2024 21:00', '%m/%d/%Y %H:%M'))
