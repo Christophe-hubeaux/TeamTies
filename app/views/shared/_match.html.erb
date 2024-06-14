@@ -18,7 +18,7 @@
         <div class="prono">
             <div class="monprono">Mon prono :</div>
             <%# L'encodage de prono n'est possible que jusqu'à 10min avant le début du match %>
-            <% if ((match.date - Time.now) >= 70*60)  && !@dashboard %>
+            <% if ((match.date - Time.now) >= 130*60)  && !@dashboard %>
               <div>
                 <%= render "shared/my-prono-form", match: match, prono: prono.nil? ? Pronostic.new : prono %>
               </div>
