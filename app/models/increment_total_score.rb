@@ -18,13 +18,15 @@ class IncrementTotalScore < ApplicationRecord
                     prono.status = "lose"
                 end
                 prono.save
-                @userGame = UsersGame.find_by(user_id: prono.user_id, game_id: prono.game_id)
-                if prono.status == "bonus"
-                    @userGame.total_score += 3
-                elsif prono.status == "win"
-                    @userGame.total_score += 1
+                userGame = UsersGame.find_by(user_id: prono.user_id, game_id: prono.game_id)
+                if userGame
+                    if prono.status == "bonus"
+                        userGame.total_score += 3
+                    elsif prono.status == "win"
+                        userGame.total_score += 1
+                    end
+                    userGame.save
                 end
-                @userGame.save
             end
             # addScore
         # end
