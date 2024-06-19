@@ -24,7 +24,6 @@ class PronosticsController < ApplicationController
         @match = Match.find(params[:match_id])
         @prono = Pronostic.where(match_id: @match, game_id: @game, user_id: current_user)
         @prono.update(prono_params)
-        raise
     end
 
     private
