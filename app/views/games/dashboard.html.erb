@@ -12,11 +12,11 @@
             <li><strong>Code -</strong> <%= @game.code %></li>
           </ul>
           <div>
-            <% if @user_game.final_winner_id.nil? %>
-              <%= render "shared/final-winner-form" %>
-            <% elsif Date.today > Date.new(2024, 6, 18) %>
+            <% if Date.today > Date.new(2024, 6, 18) %>
               <h4>Equipe championne</h4>
-              <%= @user_game.final_winner.name %>
+              <%= @user_game.final_winner ? @user_game.final_winner.name : 'Aucune équipe sélectionnée' %>
+            <% elsif @user_game.final_winner_id.nil? %>
+              <%= render "shared/final-winner-form" %>
             <% else %>
               <h4>Mon prono</h4>
               <%# <%= @user_game.final_winner.name %>
