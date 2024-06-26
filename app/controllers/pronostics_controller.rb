@@ -11,7 +11,7 @@ class PronosticsController < ApplicationController
         # @prono.match = Match.find(params[:match_id])
         # @date = @prono.match.date.strftime("%d/%m")
         @prono.game = @game
-        if @prono.save && @prono.match.stage == 'phase de groupes'
+        if @prono.save
             # redirect_to game_matches_path(@game, anchor: @date)
         # elsif @prono.save
         else
