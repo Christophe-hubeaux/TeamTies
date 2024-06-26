@@ -43,6 +43,21 @@
             <% else %>
                 <div class="result">
                     <div class="final-result">Score final <%= match.home_team_result %> - <%= match.away_team_result %></div>
+                    <div class="final-points">
+                        <% if match.stage == 'phase de groupes' %>
+                            <% if prono.status == 'bonus' %>
+                                + 3 
+                            <% elsif prono.status == 'win'%>
+                                + 1
+                            <% end %>
+                        <% else %>
+                            <% if prono.status == 'bonus' %>
+                                + 4 
+                            <% elsif prono.status == 'win'%>
+                                + 2
+                            <% end %>
+                        <% end %>
+                    </div>
                 </div>
             <% end %>
         </div>

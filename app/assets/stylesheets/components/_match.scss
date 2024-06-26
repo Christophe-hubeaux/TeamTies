@@ -98,15 +98,29 @@
 
 .result {
     text-align:center;
-    background-color: white;
-    border-radius: 5px;
-    font-size: 14px;
-    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 10px;
 }
 
 .final-result {
   font-weight: 500;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.final-points {
+  background-color: green;
+  opacity: 75%;
+  color: white;
+  border-radius: 4px;
+  width: 25%;
+  height: 80%;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 .group {
