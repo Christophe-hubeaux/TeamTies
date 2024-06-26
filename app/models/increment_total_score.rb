@@ -20,10 +20,18 @@ class IncrementTotalScore < ApplicationRecord
                 prono.save
                 userGame = UsersGame.find_by(user_id: prono.user_id, game_id: prono.game_id)
                 if userGame
-                    if prono.status == "bonus"
-                        userGame.total_score += 3
-                    elsif prono.status == "win"
-                        userGame.total_score += 1
+                    if @match.stage == 'phase de groupes'
+                        if prono.status == "bonus"
+                            userGame.total_score += 3
+                        elsif prono.status == "win"
+                            userGame.total_score += 1
+                        end
+                    else
+                        if prono.status == "bonus"
+                            userGame.total_score += 4
+                        elsif prono.status == "win"
+                            userGame.total_score += 2
+                        end
                     end
                     userGame.save
                 end
